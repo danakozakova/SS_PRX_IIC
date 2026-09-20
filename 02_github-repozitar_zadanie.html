@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRX | 02 — Úlohy pre žiakov</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: #1e293b; font-size: 20px; line-height: 1.7; }
+
+nav { position: sticky; top: 0; background: #1e1b4b; color: white; display: flex; gap: .25rem; padding: .6rem 2rem; flex-wrap: wrap; z-index: 100; align-items: center; }
+nav strong { color: white; margin-right: .5rem; }
+nav a { color: #a5b4fc; text-decoration: none; font-size: .85rem; padding: .3rem .9rem; border-radius: .25rem; }
+nav a:hover { background: #312e81; color: white; }
+
+section { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 2.5rem; border-bottom: 1px solid #e2e8f0; }
+section:last-child { border-bottom: none; }
+
+h1 { font-size: 2.2rem; color: #1e1b4b; margin-bottom: .5rem; }
+h2 { font-size: 1.8rem; color: #312e81; margin-bottom: 1.2rem; padding-bottom: .5rem; border-bottom: 2px solid #e0e7ff; }
+h3 { font-size: 1.25rem; color: #4338ca; margin: 1.75rem 0 .6rem; }
+p  { margin-bottom: .85rem; }
+ul, ol { margin: .5rem 0 .85rem 1.5rem; }
+li { margin-bottom: .5rem; }
+
+code { background: #e0e7ff; color: #3730a3; padding: .15rem .5rem; border-radius: .3rem; font-size: .88em; font-family: 'Cascadia Code', 'Fira Code', monospace; }
+pre  { background: #0f172a; color: #7dd3fc; padding: 1.4rem 1.8rem; border-radius: .75rem; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: .95rem; overflow-x: auto; margin: 1rem 0 1.5rem; line-height: 1.7; }
+pre .tg { color: #60a5fa; }
+pre .cm { color: #64748b; }
+
+.info  { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.tip   { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.warn  { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.pozn  { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+
+.uloha  { border-left: 4px solid #3b82f6; background: #eff6ff; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin-bottom: 1.5rem; }
+.uloha h2 { margin: 0 0 .5rem; color: #1e40af; font-size: 1.1rem; border: none; padding: 0; }
+.uloha p, .uloha li { margin: .25rem 0; color: #374151; }
+.bonus  { border-left: 4px solid #a855f7; background: #fdf4ff; }
+.bonus h2 { color: #7e22ce; }
+.oddelovac { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+
+.subor { display: inline-block; background: #1e1b4b; color: #a5b4fc; font-family: 'Cascadia Code', monospace; font-size: .85rem; padding: .3rem .8rem; border-radius: .4rem; margin: .3rem 0; }
+
+.krok-list { list-style: none; margin: 0; padding: 0; }
+.krok-list li { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.1rem; }
+.krok-num { background: #4338ca; color: white; font-weight: bold; min-width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; margin-top: .2rem; }
+.krok-list p { margin: 0 0 .3rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <strong>PRX · II.C · Hodina 02</strong>
+  <a href="#rozcvicka">Rozcvička</a>
+  <a href="#bonus">Bonus tagy</a>
+  <a href="#github">GitHub</a>
+  <a href="#gh-bonus">GitHub Bonus</a>
+</nav>
+
+<section>
+  <h1>Hodina 02 — GitHub repozitár</h1>
+  <p>Zopakovanie tagov, nové tagy z bonusu H01, a vytvorenie vlastného GitHub repozitára.</p>
+  <div class="info">
+    📄 Pre rozcvičku si vytvor nový prázdny súbor vo VS Code — napr. <span class="subor">rozcvicka.html</span>
+  </div>
+</section>
+
+<!-- ROZCVIČKA -->
+<section id="rozcvicka">
+  <div class="uloha">
+    <h2>🔁 Rozcvička — Napíš to podľa screenshotu</h2>
+    <p>Učiteľka ti ukáže screenshot stránky. Tvojou úlohou je napísať HTML, ktoré vytvorí presne taký výsledok.</p>
+    <ol>
+      <li>Vytvor nový prázdny súbor vo VS Code (<strong>Ctrl+N</strong>) a ulož ho ako <code>rozcvicka.html</code></li>
+      <li>Pozri sa na screenshot a píš HTML zhora nadol</li>
+      <li>Niektoré efekty nepoznáš — to je v poriadku. <strong>Hádaj a experimentuj</strong></li>
+      <li>Ulož a pozri výsledok v prehliadači (Live Preview)</li>
+    </ol>
+  </div>
+  <div class="tip">
+    💡 <strong>Tip:</strong> Vidíš text, ktorý je malý a nižšie? Alebo malý a vyššie? Zamysli sa, ako by sa mohol volať HTML tag, ktorý to robí — skús <code>&lt;sub&gt;</code> alebo <code>&lt;sup&gt;</code>.
+  </div>
+  <div class="pozn">
+    Učiteľka ukáže vzorové riešenie <code>02_github-repozitar_riesenie.html</code>.
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- BONUS TAGY -->
+<section id="bonus">
+  <h2>⭐ Bonus tagy z H01</h2>
+  <p>Toto sú tagy z minulej hodiny, ktoré sme nestihli. Pridaj ich do svojho súboru <code>02_github-repozitar_kostra.html</code> a vyskúšaj, čo robia.</p>
+
+  <div class="uloha bonus">
+    <h2>Úloha 1 — Indexy: dolný a horný</h2>
+    <p>Pridaj do súboru tieto riadky a pozoruj výsledok:</p>
+    <pre><span class="tg">&lt;p&gt;</span>Chemický vzorec vody: H<span class="tg">&lt;sub&gt;</span>2<span class="tg">&lt;/sub&gt;</span>O<span class="tg">&lt;/p&gt;</span>
+<span class="tg">&lt;p&gt;</span>Pythagorova veta: a<span class="tg">&lt;sup&gt;</span>2<span class="tg">&lt;/sup&gt;</span> + b<span class="tg">&lt;sup&gt;</span>2<span class="tg">&lt;/sup&gt;</span> = c<span class="tg">&lt;sup&gt;</span>2<span class="tg">&lt;/sup&gt;</span><span class="tg">&lt;/p&gt;</span></pre>
+    <p><em>Otázky:</em> Čo presne urobil <code>&lt;sub&gt;</code>? Čím sa líši od <code>&lt;sup&gt;</code>? Kde ešte v matematike by si použil tieto tagy?</p>
+  </div>
+
+  <div class="uloha bonus">
+    <h2>Úloha 2 — Zvýraznenie a prečiarknutie</h2>
+    <pre><span class="tg">&lt;p&gt;</span>Dnes som sa naučil(a): <span class="tg">&lt;mark&gt;</span>HTML je jednoduchý!<span class="tg">&lt;/mark&gt;</span><span class="tg">&lt;/p&gt;</span>
+<span class="tg">&lt;p&gt;&lt;del&gt;</span>HTML je ťažké<span class="tg">&lt;/del&gt;</span> — HTML je zábavné!<span class="tg">&lt;/p&gt;</span></pre>
+    <p><em>Otázky:</em> Kde by si v reálnej stránke použil <code>&lt;mark&gt;</code>? A <code>&lt;del&gt;</code>?</p>
+  </div>
+
+  <div class="uloha bonus">
+    <h2>Úloha 3 — Pohyblivý text</h2>
+    <p>Toto je <strong>starý tag</strong> — moderné stránky ho nepoužívajú. Ale je zábavný:</p>
+    <pre><span class="tg">&lt;marquee&gt;</span>Pohyblivý text!<span class="tg">&lt;/marquee&gt;</span></pre>
+    <p><em>Otázka:</em> Prečo podľa teba vývojári prestali tento tag používať?</p>
+  </div>
+
+  <div class="uloha bonus">
+    <h2>Úloha 4 — Vnorené tagy</h2>
+    <p>Tagy môžeš kombinovať. Vyskúšaj:</p>
+    <pre><span class="tg">&lt;b&gt;&lt;i&gt;</span>Tučná kurzíva<span class="tg">&lt;/i&gt;&lt;/b&gt;</span>
+<span class="tg">&lt;h2&gt;&lt;u&gt;</span>Podčiarknutý nadpis<span class="tg">&lt;/u&gt;&lt;/h2&gt;</span>
+<span class="tg">&lt;b&gt;</span>Tučný text s <span class="tg">&lt;i&gt;</span>kurzívou<span class="tg">&lt;/i&gt;</span> uprostred<span class="tg">&lt;/b&gt;</span></pre>
+    <p><em>Otázka:</em> Čo sa stane, keď zatváracie tagy nie sú v správnom poradí? Skús <code>&lt;b&gt;&lt;i&gt;text&lt;/b&gt;&lt;/i&gt;</code> — čo spraví prehliadač?</p>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- GITHUB -->
+<section id="github">
+  <h2>🐙 GitHub — vytvor si vlastný repozitár</h2>
+  <p>Repozitár = priečinok s projektom na GitHube. Každý bude mať vlastný.</p>
+
+  <div class="info">
+    Budete potrebovať <strong>emailovú adresu</strong>, ku ktorej máte prístup (školský alebo osobný). Ak nemáš, povedz učiteľke.
+  </div>
+
+  <h3>Postup</h3>
+  <ol class="krok-list">
+    <li>
+      <span class="krok-num">1</span>
+      <div>
+        <p>Choď na <strong>github.com</strong> v prehliadači</p>
+        <p>Klikni <strong>Sign up</strong> (vpravo hore)</p>
+      </div>
+    </li>
+    <li>
+      <span class="krok-num">2</span>
+      <div>
+        <p>Zadaj svoju <strong>emailovú adresu</strong></p>
+        <p>Vytvor <strong>heslo</strong> — <em>zapíš si ho!</em></p>
+        <p>Vyber si <strong>username</strong> (meno profilu) — bude v tvojom linku, napr. <code>jan-novak</code></p>
+      </div>
+    </li>
+    <li>
+      <span class="krok-num">3</span>
+      <div>
+        <p>Prejdi cez overenie (puzzle / captcha)</p>
+        <p>Klikni <strong>Create account</strong></p>
+      </div>
+    </li>
+    <li>
+      <span class="krok-num">4</span>
+      <div>
+        <p>Over email — GitHub ti pošle <strong>6-ciferný kód</strong></p>
+        <p>Otvor email, skopíruj kód a vlož ho na GitHube</p>
+      </div>
+    </li>
+    <li>
+      <span class="krok-num">5</span>
+      <div>
+        <p>Preskočte nastavenia (klikaj <strong>Skip</strong> / <strong>Continue</strong>) — nič neplať</p>
+      </div>
+    </li>
+    <li>
+      <span class="krok-num">6</span>
+      <div>
+        <p>Klikni <strong>+</strong> (vpravo hore) → <strong>New repository</strong></p>
+        <p>Názov: <code>SS_PRX_IIC</code></p>
+        <p>Nastav: <strong>Public</strong> (nie Private!)</p>
+        <p>Klikni <strong>Create repository</strong></p>
+      </div>
+    </li>
+    <li>
+      <span class="krok-num">7</span>
+      <div>
+        <p>Na stránke repozitára klikni <strong>uploading an existing file</strong></p>
+        <p>(alebo: <strong>Add file → Upload files</strong>)</p>
+      </div>
+    </li>
+    <li>
+      <span class="krok-num">8</span>
+      <div>
+        <p>Presuň (drag &amp; drop) svoj súbor <code>moja-stranka.html</code> do okna</p>
+        <p>Alebo klikni <strong>choose your files</strong> a vyber súbor</p>
+      </div>
+    </li>
+    <li>
+      <span class="krok-num">9</span>
+      <div>
+        <p>Dolu klikni <strong>Commit changes</strong></p>
+        <p>Súbor je teraz na GitHube! 🎉</p>
+      </div>
+    </li>
+    <li>
+      <span class="krok-num">10</span>
+      <div>
+        <p>Skopíruj adresu svojho repozitára z prehliadača<br>
+        (bude vyzerať ako: <code>github.com/jan-novak/SS_PRX_IIC</code>)</p>
+        <p><strong>Pošli link učiteľke</strong></p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="warn">
+    ⚠️ <strong>Ak ti nepríde overovací email:</strong> skontroluj Spam / Nevyžiadaná pošta. Ak nie je ani tam, povedz učiteľke.
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- BONUS GitHub Pages -->
+<section id="gh-bonus">
+  <div class="uloha bonus">
+    <h2>⭐ Bonus — GitHub Pages (živá webová stránka!)</h2>
+    <p>Keď nahráš súbor, GitHub ti umožní zobraziť ho ako skutočnú webovú stránku na internete:</p>
+    <ol>
+      <li>V repozitári klikni <strong>Settings</strong> (vpravo hore)</li>
+      <li>V ľavom menu klikni <strong>Pages</strong></li>
+      <li>V časti <em>Branch</em> vyber <strong>main</strong> → klikni <strong>Save</strong></li>
+      <li>Počkaj 1–2 minúty a obnov stránku</li>
+      <li>GitHub ti ukáže link — napríklad:<br>
+      <code>jan-novak.github.io/SS_PRX_IIC</code></li>
+    </ol>
+    <p>Toto je tvoja prvá skutočná webová stránka prístupná z celého sveta! 🌍</p>
+  </div>
+</section>
+
+</body>
+</html>
