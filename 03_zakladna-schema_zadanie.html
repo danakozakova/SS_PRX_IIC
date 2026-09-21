@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRX | 03 — Základná schéma</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: #1e293b; font-size: 20px; line-height: 1.7; }
+
+nav { position: sticky; top: 0; background: #1e1b4b; color: white; display: flex; gap: .25rem; padding: .6rem 2rem; flex-wrap: wrap; z-index: 100; align-items: center; }
+nav strong { color: white; margin-right: .5rem; }
+nav a { color: #a5b4fc; text-decoration: none; font-size: .85rem; padding: .3rem .9rem; border-radius: .25rem; }
+nav a:hover { background: #312e81; color: white; }
+
+section { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 2.5rem; border-bottom: 1px solid #e2e8f0; }
+section:last-child { border-bottom: none; }
+
+h1 { font-size: 2.2rem; color: #1e1b4b; margin-bottom: .5rem; }
+h2 { font-size: 1.8rem; color: #312e81; margin-bottom: 1.2rem; padding-bottom: .5rem; border-bottom: 2px solid #e0e7ff; }
+h3 { font-size: 1.25rem; color: #4338ca; margin: 1.75rem 0 .6rem; }
+p  { margin-bottom: .85rem; }
+ul, ol { margin: .5rem 0 .85rem 1.5rem; }
+li { margin-bottom: .5rem; }
+
+code { background: #e0e7ff; color: #3730a3; padding: .15rem .5rem; border-radius: .3rem; font-size: .88em; font-family: 'Cascadia Code', 'Fira Code', monospace; }
+pre  { background: #0f172a; color: #7dd3fc; padding: 1.4rem 1.8rem; border-radius: .75rem; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: .95rem; overflow-x: auto; margin: 1rem 0 1.5rem; line-height: 1.7; }
+pre .tg { color: #60a5fa; }
+pre .at { color: #fbbf24; }
+pre .st { color: #86efac; }
+pre .kw { color: #c084fc; }
+pre .cm { color: #64748b; }
+
+.info    { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.tip     { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.warn    { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.pozn    { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+
+.uloha   { border-left: 4px solid #3b82f6; background: #eff6ff; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin-bottom: 1.5rem; }
+.uloha h2 { margin: 0 0 .5rem; color: #1e40af; font-size: 1.1rem; border: none; padding: 0; }
+.uloha p, .uloha li { margin: .25rem 0; color: #374151; }
+.projekt  { border-left: 4px solid #22c55e; background: #f0fdf4; }
+.projekt h2 { color: #15803d; }
+.bonus    { border-left: 4px solid #a855f7; background: #fdf4ff; }
+.bonus h2 { color: #7e22ce; }
+.oddelovac { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+
+.subor { display: inline-block; background: #1e1b4b; color: #a5b4fc; font-family: 'Cascadia Code', monospace; font-size: .85rem; padding: .3rem .8rem; border-radius: .4rem; margin: .3rem 0; }
+</style>
+</head>
+<body>
+
+<nav>
+  <strong>PRX · II.C · Hodina 03</strong>
+  <a href="#u0">Úloha 0</a>
+  <a href="#u1">Úloha 1</a>
+  <a href="#u2">Úloha 2</a>
+  <a href="#u3">Úloha 3</a>
+  <a href="#u4">Úloha 4</a>
+  <a href="#projekt">Mini-projekt</a>
+  <a href="#bonus">Bonus</a>
+</nav>
+
+<section>
+  <h1>Hodina 03 — Základná schéma HTML dokumentu</h1>
+  <p>Každý správny HTML dokument musí mať povinné časti. Dnes ich objavíme a naučíme sa ich používať.</p>
+
+  <div class="info">
+    📄 Dnes vytvoríš novú stránku <strong><code>moja-stranka.html</code></strong>. Na Úlohu 0 budeš potrebovať aj <strong><code>rozcvicka.html</code></strong> z H02 — otvor ho vo VS Code.
+  </div>
+</section>
+
+<!-- ÚLOHA 0 -->
+<section id="u0">
+  <div class="uloha">
+    <h2>Úloha 0 — Čo chýba tvojej stránke?</h2>
+    <p>Otvor <code>rozcvicka.html</code> z H02 vo VS Code. Potom otvor zdrojový kód stránky školy <code>sstv.sk</code> v prehliadači (<code>Ctrl+U</code>).</p>
+    <p>Porovnaj ich a odpovedz:</p>
+    <ol>
+      <li>Čo je na <strong>prvom riadku</strong> stránky sstv.sk? Je to aj v <code>rozcvicka.html</code>?</li>
+      <li>Vidíš na sstv.sk tagy <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>? Sú v <code>rozcvicka.html</code>?</li>
+      <li>Čo sa nachádza v <code>&lt;head&gt;</code> na sstv.sk? Nájdi tag <code>&lt;title&gt;</code> — kde vidíš jeho obsah?</li>
+    </ol>
+    <p><strong>Záver:</strong> Čo <code>rozcvicka.html</code> chýba, aby bola <em>správny</em> HTML dokument?</p>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 1 -->
+<section id="u1">
+  <div class="uloha">
+    <h2>Úloha 1 — Oprav svoju stránku</h2>
+    <p>Vytvor nový prázdny súbor (<strong>Ctrl+N</strong>), ulož ho ako <code>moja-stranka.html</code>. Napíš do neho základnú schému <em>od nuly</em>:</p>
+    <ol>
+      <li>Napíš <code>&lt;!DOCTYPE html&gt;</code></li>
+      <li>Pridaj <code>&lt;html lang="sk"&gt;</code></li>
+      <li>Vnútri napíš <code>&lt;head&gt;</code> — daj dnu <code>&lt;meta charset="UTF-8"&gt;</code> a <code>&lt;title&gt;Tvoje meno&lt;/title&gt;</code> — zavri <code>&lt;/head&gt;</code></li>
+      <li>Pridaj <code>&lt;body&gt;&lt;/body&gt;</code> a zavri <code>&lt;/html&gt;</code></li>
+      <li>Ulož a otvor v prehliadači — vidíš svoje meno v záložke?</li>
+    </ol>
+    <div class="tip">
+      💡 <strong>Skratka:</strong> v prázdnom <code>.html</code> súbore napíš <code>!</code> a stlač <strong>Tab</strong> — VS Code vygeneruje celú schému automaticky. Ale skús to najprv sám/sama!
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 2 -->
+<section id="u2">
+  <div class="uloha">
+    <h2>Úloha 2 — Skúmanie &lt;title&gt;</h2>
+    <ol>
+      <li>Zmeň text v <code>&lt;title&gt;</code> na svoje meno — napr. <code>&lt;title&gt;Janka Nováková&lt;/title&gt;</code></li>
+      <li>Ulož súbor (<code>Ctrl+S</code>) a otvor ho v prehliadači</li>
+      <li>Kde sa zobrazuje text z <code>&lt;title&gt;</code>? Kde NIE?</li>
+    </ol>
+    <p>Zapíš si odpoveď.</p>
+    <div class="pozn">
+      💡 Nápoveda: pozri na záložku prehliadača a na samotnú stránku — aký je rozdiel?
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 3 -->
+<section id="u3">
+  <div class="uloha">
+    <h2>Úloha 3 — Experiment: bez DOCTYPE</h2>
+    <ol>
+      <li>Zakomentuj riadok <code>&lt;!DOCTYPE html&gt;</code> — obaľ ho do <code>&lt;!-- ... --&gt;</code></li>
+      <li>Ulož a obnov prehliadač</li>
+      <li>Čo sa stalo? Vyzerá stránka rovnako?</li>
+      <li>Teraz otvor <strong>DevTools</strong> (<code>F12</code>) — záložka <em>Console</em> — vidíš nejaké upozornenia?</li>
+      <li>Vráť DOCTYPE späť (odkomentuj)</li>
+    </ol>
+    <div class="warn">
+      ⚠️ Bez DOCTYPE prehliadač prepne do tzv. <em>Quirks Mode</em> — starý kompatibilný režim. Stránka sa môže zobrazovať inak. Vždy ho píšeme!
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 4 -->
+<section id="u4">
+  <div class="uloha">
+    <h2>Úloha 4 — Kódovanie znakov</h2>
+    <ol>
+      <li>Do <code>&lt;body&gt;</code> napíš vetu so slovenskou diakritikou: <code>&lt;p&gt;Príklad: šťava, môžeš, ôsmy&lt;/p&gt;</code></li>
+      <li>Skontroluj, že <code>&lt;meta charset="UTF-8"&gt;</code> je v head. Uložiť a skontrolovať — znaky OK?</li>
+      <li>Teraz zmeň na <code>charset="windows-1250"</code> — čo sa stalo so zobrazením dĺžní a háčikov?</li>
+      <li>Vráť naspäť na <code>UTF-8</code></li>
+    </ol>
+    <p><strong>Záver:</strong> Prečo vždy píšeme <code>charset="UTF-8"</code>?</p>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- MINI-PROJEKT -->
+<section id="projekt">
+  <div class="uloha projekt">
+    <h2>🎯 Mini-projekt — Môj profil</h2>
+    <p>Vytvor kompletnú, platnú HTML stránku s tvojím profilom. Musí obsahovať:</p>
+    <ul>
+      <li>✅ <code>&lt;!DOCTYPE html&gt;</code> na začiatku</li>
+      <li>✅ <code>&lt;html lang="sk"&gt;</code></li>
+      <li>✅ <code>&lt;head&gt;</code> s <code>charset="UTF-8"</code></li>
+      <li>✅ <code>&lt;title&gt;</code> s tvojím menom</li>
+      <li>✅ <code>&lt;body&gt;</code> so slovenským textom (dĺžne a háčiky musia byť správne!)</li>
+      <li>✅ Aspoň 5 rôznych HTML tagov v body (z predchádzajúcich hodín alebo nové)</li>
+      <li>✅ Stránka sa musí otvoriť správne aj v prehliadači (nielen v Live Preview)</li>
+    </ul>
+    <p><strong>Postup:</strong> Začni od <code>!</code> + Tab (nechaj VS Code vygenerovať kostru), potom doplň obsah do body.</p>
+    <p><strong>Kontrola:</strong> Otvor v prehliadači — vidíš svoje meno v záložke? Je diakritika správna?</p>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- BONUS -->
+<section id="bonus">
+  <div class="uloha bonus">
+    <h2>⭐ Bonus — Ďalšie meta tagy</h2>
+    <p>Do <code>&lt;head&gt;</code> svojej stránky pridaj tieto riadky a zisti čo robia:</p>
+    <ol>
+      <li>
+        <strong>Popis stránky</strong> — kde sa tento text zobrazuje (nápoveda: Google)?
+        <pre><span class="tg">&lt;meta</span> <span class="at">name</span>=<span class="st">"description"</span> <span class="at">content</span>=<span class="st">"Osobná stránka Janky Novákovej"</span><span class="tg">&gt;</span></pre>
+      </li>
+      <li>
+        <strong>Viewport pre mobily</strong> — čo sa stane bez neho na mobile?
+        <pre><span class="tg">&lt;meta</span> <span class="at">name</span>=<span class="st">"viewport"</span> <span class="at">content</span>=<span class="st">"width=device-width, initial-scale=1"</span><span class="tg">&gt;</span></pre>
+      </li>
+      <li>
+        <strong>Autor</strong> — čo urobí?
+        <pre><span class="tg">&lt;meta</span> <span class="at">name</span>=<span class="st">"author"</span> <span class="at">content</span>=<span class="st">"Tvoje meno"</span><span class="tg">&gt;</span></pre>
+      </li>
+    </ol>
+  </div>
+</section>
+
+</body>
+</html>
