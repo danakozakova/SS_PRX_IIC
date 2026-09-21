@@ -8,4 +8,4 @@
 - [02_github_repozitar_riesenie.png](02_github_repozitar_riesenie.png)
 
 # 03 Téma - štruktúra:
-- 
+- [03_zakladna-schema_zadanie.html](https://danakozakova.github.io/SS_PRX_IIC/03_zakladna-schema_zadanie.html)
