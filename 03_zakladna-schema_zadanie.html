@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PRX | 03 — Základná schéma</title>
+<title>PRX | 03 — Základná schéma (žiaci)</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: #1e293b; font-size: 20px; line-height: 1.7; }
@@ -41,51 +41,55 @@ pre .cm { color: #64748b; }
 .uloha p, .uloha li { margin: .25rem 0; color: #374151; }
 .projekt  { border-left: 4px solid #22c55e; background: #f0fdf4; }
 .projekt h2 { color: #15803d; }
+.publish  { border-left: 4px solid #0ea5e9; background: #ecfeff; }
+.publish h2 { color: #0369a1; }
 .bonus    { border-left: 4px solid #a855f7; background: #fdf4ff; }
 .bonus h2 { color: #7e22ce; }
 .oddelovac { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
 
 .subor { display: inline-block; background: #1e1b4b; color: #a5b4fc; font-family: 'Cascadia Code', monospace; font-size: .85rem; padding: .3rem .8rem; border-radius: .4rem; margin: .3rem 0; }
+
+.krok-list { list-style: none; margin: 0; padding: 0; }
+.krok-list li { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.1rem; }
+.krok-num { background: #4338ca; color: white; font-weight: bold; min-width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; margin-top: .2rem; }
+.krok-list p { margin: 0 0 .3rem; }
 </style>
 </head>
 <body>
 
 <nav>
   <strong>PRX · II.C · Hodina 03</strong>
-  <a href="#u0">Úloha 0</a>
+  <a href="#u0">Objavenie</a>
   <a href="#u1">Úloha 1</a>
   <a href="#u2">Úloha 2</a>
   <a href="#u3">Úloha 3</a>
   <a href="#u4">Úloha 4</a>
-  <a href="#projekt">Mini-projekt</a>
   <a href="#bonus">Bonus</a>
+  <a href="#github">Publikovanie</a>
+  <a href="#readme">README</a>
 </nav>
 
 <section>
   <h1>Hodina 03 — Základná schéma HTML dokumentu</h1>
-  <p>Každý správny HTML dokument musí mať povinné časti. Dnes ich objavíme a naučíme sa ich používať.</p>
-
-  <div class="info">
-    📄 Dnes vytvoríš novú stránku <strong><code>moja-stranka.html</code></strong>. Na Úlohu 0 budeš potrebovať aj <strong><code>rozcvicka.html</code></strong> z H02 — otvor ho vo VS Code.
-  </div>
+  <p>Minule sme písali HTML tagy priamo — dnes sa naučíme <strong>správnu kostru</strong> HTML dokumentu, naplníme ju obsahom a stránku <strong>vypublikujeme na internet</strong>.</p>
 
   <div class="tip">
-    📁 <strong>Priečinok pre túto hodinu:</strong> Všetky súbory z H03 ukladaj do priečinka <code>03_tema</code> (rovnako ako <code>01_tema</code> a <code>02_tema</code> z predošlých hodín).
+    📁 <strong>Priečinok pre túto hodinu:</strong> všetky súbory z H03 ukladaj do priečinka <code>03_tema</code> (rovnako ako <code>01_tema</code> a <code>02_tema</code>).
   </div>
 </section>
 
-<!-- ÚLOHA 0 -->
+<!-- OBJAVENIE -->
 <section id="u0">
   <div class="uloha">
-    <h2>Úloha 0 — Čo chýba tvojej stránke?</h2>
-    <p>Otvor <code>rozcvicka.html</code> z H02 vo VS Code. Potom otvor zdrojový kód stránky školy <code>sstv.sk</code> v prehliadači (<code>Ctrl+U</code>).</p>
+    <h2>Objavenie — čo má „poriadna" stránka navyše?</h2>
+    <p>Otvor svoj súbor <code>rozcvicka.html</code> z minulej hodiny (H02) vo VS Code. Potom v prehliadači otvor zdrojový kód stránky školy <code>sstv.sk</code> (<code>Ctrl+U</code>).</p>
     <p>Porovnaj ich a odpovedz:</p>
     <ol>
-      <li>Čo je na <strong>prvom riadku</strong> stránky sstv.sk? Je to aj v <code>rozcvicka.html</code>?</li>
-      <li>Vidíš na sstv.sk tagy <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>? Sú v <code>rozcvicka.html</code>?</li>
-      <li>Čo sa nachádza v <code>&lt;head&gt;</code> na sstv.sk? Nájdi tag <code>&lt;title&gt;</code> — kde vidíš jeho obsah?</li>
+      <li>Vidíš na <code>sstv.sk</code> tagy <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>? Máš ich aj ty v <code>rozcvicka.html</code>?</li>
+      <li>Čo sa nachádza v <code>&lt;head&gt;</code>? Nájdi tag <code>&lt;title&gt;</code> — kde v prehliadači vidíš jeho obsah?</li>
+      <li><code>&lt;!DOCTYPE html&gt;</code> na prvom riadku poznáš už z minula — je aj na <code>sstv.sk</code>?</li>
     </ol>
-    <p><strong>Záver:</strong> Čo <code>rozcvicka.html</code> chýba, aby bola <em>správny</em> HTML dokument?</p>
+    <p><strong>Záver:</strong> Čo tvojej rozcvičke chýba, aby bola <em>úplný, správny</em> HTML dokument?</p>
   </div>
 </section>
 
@@ -94,21 +98,36 @@ pre .cm { color: #64748b; }
 <!-- ÚLOHA 1 -->
 <section id="u1">
   <div class="uloha">
-    <h2>Úloha 1 — Oprav svoju stránku</h2>
-    <p>Vytvor nový prázdny súbor (<strong>Ctrl+N</strong>), ulož ho ako <code>moja-stranka.html</code>. Napíš do neho základnú schému <em>od nuly</em>:</p>
-    <ol>
-      <li>Napíš <code>&lt;!DOCTYPE html&gt;</code></li>
-      <li>Pridaj <code>&lt;html lang="sk"&gt;</code></li>
-      <li>Vnútri napíš <code>&lt;head&gt;</code> — daj dnu <code>&lt;meta charset="UTF-8"&gt;</code> a <code>&lt;title&gt;Tvoje meno&lt;/title&gt;</code> — zavri <code>&lt;/head&gt;</code></li>
-      <li>Pridaj <code>&lt;body&gt;&lt;/body&gt;</code> a zavri <code>&lt;/html&gt;</code></li>
-      <li>Ulož a otvor v prehliadači — vidíš svoje meno v záložke?</li>
-    </ol>
-    <div class="tip">
-      💡 <strong>Skratka:</strong> v prázdnom <code>.html</code> súbore napíš <code>!</code> a stlač <strong>Tab</strong> — VS Code vygeneruje celú schému automaticky. Ale skús to najprv sám/sama!
-    </div>
+    <h2>Úloha 1 — Nová stránka od nuly + naplnenie</h2>
+    <p><strong>a) Vytvor kostru.</strong> Vytvor nový prázdny súbor (<code>Ctrl+N</code>) a ulož ho ako <code>moja-stranka.html</code> do priečinka <code>03_tema</code>. V prázdnom súbore napíš <code>!</code> a stlač <strong>Tab</strong> — VS Code vygeneruje celú základnú schému.</p>
+    <p>Skontroluj, že máš všetky časti: <code>&lt;!DOCTYPE html&gt;</code> → <code>&lt;html&gt;</code> → <code>&lt;head&gt;</code> → <code>&lt;body&gt;</code>.</p>
     <div class="warn">
-      ⚠️ <strong>Pozor:</strong> VS Code vygeneruje <code>lang="en"</code> (angličtina). Pre slovenské stránky to hneď zmeň na <code>lang="sk"</code>!
+      ⚠️ VS Code vygeneruje <code>lang="en"</code> a <code>&lt;title&gt;Document&lt;/title&gt;</code>. Zmeň <code>lang="en"</code> na <code>lang="sk"</code> a do <code>&lt;title&gt;</code> napíš svoje meno.
     </div>
+    <p><strong>b) Naplň stránku obsahom.</strong> Takto má vyzerať hotová stránka. <strong>Napíš do <code>&lt;body&gt;</code> HTML, ktoré vytvorí takýto výsledok</strong> — a údaje si prepíš na seba (meno, obec, záujmy, predmety… sú len ukážkové):</p>
+    <img src="03_navrh-osobneho-webu.png" alt="Ukážka hotového osobného webu" style="max-width:100%; border:1px solid #e2e8f0; border-radius:.5rem; box-shadow:0 4px 12px rgba(0,0,0,.08); margin:1rem 0;">
+    <div class="info">
+      <strong>Tagy, ktoré v ukážke použiješ:</strong>
+      <ul>
+        <li><code>&lt;h1&gt;</code> — hlavný nadpis (tvoje meno)</li>
+        <li><code>&lt;h2&gt;</code> — nadpis sekcie (O mne, Moje záujmy…)</li>
+        <li><code>&lt;hr&gt;</code> — vodorovná oddeľovacia čiara</li>
+        <li><code>&lt;p&gt;</code> — odsek (odstavec textu)</li>
+        <li><code>&lt;b&gt;</code> — tučné písmo</li>
+        <li><code>&lt;u&gt;</code> — podčiarknuté písmo</li>
+        <li><code>&lt;ul&gt;</code> a <code>&lt;li&gt;</code> — zoznam a jeho položky</li>
+        <li><code>&lt;mark&gt;</code> — zvýraznenie (ako zvýrazňovačom)</li>
+        <li><code>&lt;del&gt;</code> — prečiarknutý text</li>
+        <li><code>&lt;a&gt;</code> — odkaz (nový tag — pozri poznámku nižšie)</li>
+      </ul>
+    </div>
+    <div class="tip">💡 <strong>Skratka na zoznam:</strong> tri položky zoznamu napíšeš rýchlo cez Emmet — do prázdneho riadka napíš <code>ul&gt;li*3</code> a stlač <strong>Tab</strong>. VS Code vygeneruje <code>&lt;ul&gt;</code> s tromi prázdnymi <code>&lt;li&gt;&lt;/li&gt;</code>.</div>
+    <div class="pozn">
+      🔗 <strong>Nový tag — odkaz <code>&lt;a&gt;</code>:</strong> e-mail v kontakte je <em>odkaz</em>, ktorý sme ešte nepoužili. Napíšeš ho takto:
+      <pre><span class="tg">&lt;a</span> <span class="at">href</span>=<span class="st">"mailto:tvoj.email@strednaskolats.sk"</span><span class="tg">&gt;</span>tvoj.email@strednaskolats.sk<span class="tg">&lt;/a&gt;</span></pre>
+      Atribút <code>href</code> hovorí, <strong>kam</strong> odkaz vedie; <code>mailto:</code> na začiatku znamená, že po kliknutí sa otvorí e-mailový program.
+    </div>
+    <p>Ulož (<code>Ctrl+S</code>) a otvor v prehliadači. Vidíš svoje meno v záložke aj na stránke?</p>
   </div>
 </section>
 
@@ -117,15 +136,14 @@ pre .cm { color: #64748b; }
 <!-- ÚLOHA 2 -->
 <section id="u2">
   <div class="uloha">
-    <h2>Úloha 2 — Skúmanie &lt;title&gt;</h2>
+    <h2>Úloha 2 — Skúmanie <code>&lt;title&gt;</code></h2>
     <ol>
-      <li>Zmeň text v <code>&lt;title&gt;</code> na svoje meno — napr. <code>&lt;title&gt;Janka Nováková&lt;/title&gt;</code></li>
-      <li>Ulož súbor (<code>Ctrl+S</code>) a otvor ho v prehliadači</li>
-      <li>Kde sa zobrazuje text z <code>&lt;title&gt;</code>? Kde NIE?</li>
+      <li>Zmeň text v <code>&lt;title&gt;</code> (napr. na „Môj prvý web").</li>
+      <li>Ulož a obnov stránku v prehliadači.</li>
+      <li>Kde sa text z <code>&lt;title&gt;</code> zobrazuje? A kde <strong>NIE</strong>?</li>
     </ol>
-    <p>Zapíš si odpoveď.</p>
     <div class="pozn">
-      💡 Nápoveda: pozri na záložku prehliadača a na samotnú stránku — aký je rozdiel?
+      💡 Nápoveda: porovnaj <em>záložku</em> prehliadača a <em>obsah</em> stránky. V čom je rozdiel oproti <code>&lt;h1&gt;</code>?
     </div>
   </div>
 </section>
@@ -135,16 +153,16 @@ pre .cm { color: #64748b; }
 <!-- ÚLOHA 3 -->
 <section id="u3">
   <div class="uloha">
-    <h2>Úloha 3 — Experiment: bez DOCTYPE</h2>
+    <h2>Úloha 3 — Čo spraví <code>&lt;!DOCTYPE html&gt;</code>?</h2>
+    <p>DOCTYPE už máš na stránke z minula. Teraz vyskúšame, <strong>na čo vlastne je</strong> — a keďže stránka je už plná obsahu, uvidíš rozdiel:</p>
     <ol>
-      <li>Zakomentuj riadok <code>&lt;!DOCTYPE html&gt;</code> — obaľ ho do <code>&lt;!-- ... --&gt;</code></li>
-      <li>Ulož a obnov prehliadač</li>
-      <li>Čo sa stalo? Vyzerá stránka rovnako?</li>
-      <li>Teraz otvor <strong>DevTools</strong> (<code>F12</code>) — záložka <em>Console</em> — vidíš nejaké upozornenia?</li>
-      <li>Vráť DOCTYPE späť (odkomentuj)</li>
+      <li>Zakomentuj prvý riadok: obaľ <code>&lt;!DOCTYPE html&gt;</code> do <code>&lt;!-- ... --&gt;</code></li>
+      <li>Ulož a obnov prehliadač.</li>
+      <li>Otvor <strong>DevTools</strong> (<code>F12</code>) → záložka <em>Console</em> — vidíš nejaké upozornenie?</li>
+      <li>Vráť DOCTYPE späť (odkomentuj).</li>
     </ol>
     <div class="warn">
-      ⚠️ Bez DOCTYPE prehliadač prepne do tzv. <em>Quirks Mode</em> — starý kompatibilný režim. Stránka sa môže zobrazovať inak. Vždy ho píšeme!
+      ⚠️ Bez DOCTYPE prehliadač prepne do tzv. <em>Quirks Mode</em> — starý kompatibilný režim, v ktorom sa stránka (najmä neskôr s CSS) môže správať inak. Preto DOCTYPE píšeme vždy.
     </div>
   </div>
 </section>
@@ -154,35 +172,13 @@ pre .cm { color: #64748b; }
 <!-- ÚLOHA 4 -->
 <section id="u4">
   <div class="uloha">
-    <h2>Úloha 4 — Kódovanie znakov</h2>
+    <h2>Úloha 4 — Kódovanie znakov (<code>charset</code>)</h2>
     <ol>
-      <li>Do <code>&lt;body&gt;</code> napíš vetu so slovenskou diakritikou: <code>&lt;p&gt;Príklad: šťava, môžeš, ôsmy, ľahký&lt;/p&gt;</code></li>
-      <li>Skontroluj, že <code>&lt;meta charset="UTF-8"&gt;</code> je v head. Uložiť a skontrolovať — znaky OK?</li>
-      <li>Teraz zmeň na <code>charset="ISO-8859-1"</code> (Latin) — čo sa stalo so zobrazením dĺžní a háčikov?</li>
-      <li>Vráť naspäť na <code>UTF-8</code></li>
+      <li>Skontroluj, že v <code>&lt;head&gt;</code> máš <code>&lt;meta charset="UTF-8"&gt;</code>. Zobrazuje sa tvoja diakritika (á, č, š, ô, ľ) správne?</li>
+      <li>Zmeň <code>charset="UTF-8"</code> na <code>charset="ISO-8859-1"</code>. Ulož a obnov — čo sa stalo s dĺžňami a háčikmi?</li>
+      <li>Vráť späť na <code>UTF-8</code>.</li>
     </ol>
     <p><strong>Záver:</strong> Prečo vždy píšeme <code>charset="UTF-8"</code>?</p>
-  </div>
-</section>
-
-<hr class="oddelovac">
-
-<!-- MINI-PROJEKT -->
-<section id="projekt">
-  <div class="uloha projekt">
-    <h2>🎯 Mini-projekt — Môj profil</h2>
-    <p>Vytvor kompletnú, platnú HTML stránku s tvojím profilom. Musí obsahovať:</p>
-    <ul>
-      <li>✅ <code>&lt;!DOCTYPE html&gt;</code> na začiatku</li>
-      <li>✅ <code>&lt;html lang="sk"&gt;</code></li>
-      <li>✅ <code>&lt;head&gt;</code> s <code>charset="UTF-8"</code></li>
-      <li>✅ <code>&lt;title&gt;</code> s tvojím menom</li>
-      <li>✅ <code>&lt;body&gt;</code> so slovenským textom (dĺžne a háčiky musia byť správne!)</li>
-      <li>✅ Aspoň 5 rôznych HTML tagov v body (z predchádzajúcich hodín alebo nové)</li>
-      <li>✅ Stránka sa musí otvoriť správne aj v prehliadači (nielen v Live Preview)</li>
-    </ul>
-    <p><strong>Postup:</strong> Začni od <code>!</code> + Tab (nechaj VS Code vygenerovať kostru), potom doplň obsah do body.</p>
-    <p><strong>Kontrola:</strong> Otvor v prehliadači — vidíš svoje meno v záložke? Je diakritika správna?</p>
   </div>
 </section>
 
@@ -192,21 +188,93 @@ pre .cm { color: #64748b; }
 <section id="bonus">
   <div class="uloha bonus">
     <h2>⭐ Bonus — Ďalšie meta tagy</h2>
-    <p>Do <code>&lt;head&gt;</code> svojej stránky pridaj tieto riadky a zisti čo robia:</p>
+    <p>Do <code>&lt;head&gt;</code> pridaj tieto riadky a zisti, čo robia:</p>
     <ol>
-      <li>
-        <strong>Popis stránky</strong> — kde sa tento text zobrazuje (nápoveda: Google)?
-        <pre><span class="tg">&lt;meta</span> <span class="at">name</span>=<span class="st">"description"</span> <span class="at">content</span>=<span class="st">"Osobná stránka Janky Novákovej"</span><span class="tg">&gt;</span></pre>
+      <li><strong>Popis stránky</strong> (kde sa zobrazuje — nápoveda: Google):
+        <pre><span class="tg">&lt;meta</span> <span class="at">name</span>=<span class="st">"description"</span> <span class="at">content</span>=<span class="st">"Osobná stránka — Tvoje Meno"</span><span class="tg">&gt;</span></pre>
       </li>
-      <li>
-        <strong>Viewport pre mobily</strong> — čo sa stane bez neho na mobile?
+      <li><strong>Viewport pre mobily</strong> (čo sa stane bez neho na telefóne?):
         <pre><span class="tg">&lt;meta</span> <span class="at">name</span>=<span class="st">"viewport"</span> <span class="at">content</span>=<span class="st">"width=device-width, initial-scale=1"</span><span class="tg">&gt;</span></pre>
       </li>
-      <li>
-        <strong>Autor</strong> — čo urobí?
-        <pre><span class="tg">&lt;meta</span> <span class="at">name</span>=<span class="st">"author"</span> <span class="at">content</span>=<span class="st">"Tvoje meno"</span><span class="tg">&gt;</span></pre>
+      <li><strong>Autor</strong>:
+        <pre><span class="tg">&lt;meta</span> <span class="at">name</span>=<span class="st">"author"</span> <span class="at">content</span>=<span class="st">"Tvoje Meno"</span><span class="tg">&gt;</span></pre>
       </li>
     </ol>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- PUBLIKOVANIE -->
+<section id="github">
+  <div class="uloha publish">
+    <h2>🌍 Publikovanie — vylož stránku na internet (GitHub Pages)</h2>
+    <p>Teraz z tvojej stránky spravíme <strong>skutočný web dostupný z celého sveta</strong>. Postup poznáš z H02 (bonus) — zopakujeme ho:</p>
+    <div class="pozn">
+      ✋ <strong>Zatiaľ nahrávame ručne</strong> — cez web GitHubu (drag &amp; drop). A nahráva sa <strong>celý priečinok <code>03_tema</code></strong>, nie len jeden súbor — aby sa na GitHube zachovala rovnaká štruktúra ako u teba v počítači. Neskôr si ukážeme rýchlejší spôsob priamo z VS Code.
+    </div>
+    <ol class="krok-list">
+      <li>
+        <span class="krok-num">1</span>
+        <div>
+          <p>Nahraj svoju prácu do repozitára <code>SS_PRX_IIC</code> na GitHube — <strong>celý priečinok <code>03_tema</code></strong> (aj so súborom <code>moja-stranka.html</code> vnútri).</p>
+          <p><strong>Add file → Upload files</strong> → presuň (drag &amp; drop) <strong>celý priečinok <code>03_tema</code></strong> → dole <strong>Commit changes</strong>.</p>
+        </div>
+      </li>
+      <li>
+        <span class="krok-num">2</span>
+        <div><p>V repozitári klikni <strong>Settings</strong> → v ľavom menu <strong>Pages</strong>.</p></div>
+      </li>
+      <li>
+        <span class="krok-num">3</span>
+        <div><p>V časti <em>Branch</em> vyber <strong>main</strong> → <strong>Save</strong>.</p></div>
+      </li>
+      <li>
+        <span class="krok-num">4</span>
+        <div><p>Počkaj 1–2 minúty a obnov stránku. GitHub ti ukáže link, napr.<br>
+        <code>tvoj-username.github.io/SS_PRX_IIC/03_tema/moja-stranka.html</code></p></div>
+      </li>
+      <li>
+        <span class="krok-num">5</span>
+        <div><p>Otvor link v prehliadači — <strong>tvoja stránka je online!</strong> 🎉</p></div>
+      </li>
+    </ol>
+    <div class="pozn">
+      💡 <strong>Tip:</strong> ak súbor nazveš <code>index.html</code> a dáš ho do koreňa repozitára, stránka sa otvorí priamo na <code>tvoj-username.github.io/SS_PRX_IIC/</code> bez dlhej cesty.
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- README -->
+<section id="readme">
+  <div class="uloha publish">
+    <h2>📄 README — vizitka tvojho projektu</h2>
+    <p>Každý poriadny projekt na GitHube má súbor <code>README.md</code> — krátky popis, ktorý sa zobrazuje priamo na stránke repozitára. Vytvor ho:</p>
+    <ol>
+      <li>V repozitári klikni <strong>Add file → Create new file</strong>, názov: <code>README.md</code></li>
+      <li>Vlož tento text a prepíš si ho na seba:</li>
+    </ol>
+    <pre><span class="cm"># Moja osobná stránka — PRX II.C</span>
+
+Toto je moja prvá webová stránka. Vytvoril(a) som ju na predmete
+PRX (Odborná prax), II.C, SPŠ IT Ignáca Gessaya v Tvrdošíne.
+
+<span class="cm">## Obsah</span>
+- `03_tema/moja-stranka.html` — osobný web (o mne, záujmy, kontakt)
+
+<span class="cm">## Živá stránka</span>
+https://tvoj-username.github.io/SS_PRX_IIC/03_tema/moja-stranka.html
+
+<span class="cm">## Čo som sa naučil(a)</span>
+- základnú schému HTML dokumentu (DOCTYPE, html, head, body)
+- význam &lt;title&gt;, charset="UTF-8" a lang="sk"
+- publikovanie stránky cez GitHub Pages</pre>
+    <p>3. Dole klikni <strong>Commit changes</strong>. Hotovo — tvoj repozitár má vizitku!</p>
+    <div class="tip">
+      💡 <code>.md</code> je <strong>Markdown</strong> — jednoduchý formát na písanie textu. <code>#</code> je nadpis, <code>-</code> je odrážka. GitHub ho pekne zobrazí.
+    </div>
   </div>
 </section>
 
