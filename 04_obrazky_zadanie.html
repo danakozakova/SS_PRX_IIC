@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRX | 04 — Obrázky (žiaci)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: #1e293b; font-size: 20px; line-height: 1.7; }
+
+nav { position: sticky; top: 0; background: #1e1b4b; color: white; display: flex; gap: .25rem; padding: .6rem 2rem; flex-wrap: wrap; z-index: 100; align-items: center; }
+nav strong { color: white; margin-right: .5rem; }
+nav a { color: #a5b4fc; text-decoration: none; font-size: .85rem; padding: .3rem .9rem; border-radius: .25rem; }
+nav a:hover { background: #312e81; color: white; }
+
+section { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 2.5rem; border-bottom: 1px solid #e2e8f0; }
+section:last-child { border-bottom: none; }
+
+h1 { font-size: 2.2rem; color: #1e1b4b; margin-bottom: .5rem; }
+h2 { font-size: 1.8rem; color: #312e81; margin-bottom: 1.2rem; padding-bottom: .5rem; border-bottom: 2px solid #e0e7ff; }
+h3 { font-size: 1.25rem; color: #4338ca; margin: 1.75rem 0 .6rem; }
+p  { margin-bottom: .85rem; }
+ul, ol { margin: .5rem 0 .85rem 1.5rem; }
+li { margin-bottom: .5rem; }
+
+code { background: #e0e7ff; color: #3730a3; padding: .15rem .5rem; border-radius: .3rem; font-size: .88em; font-family: 'Cascadia Code', 'Fira Code', monospace; }
+pre  { background: #0f172a; color: #7dd3fc; padding: 1.4rem 1.8rem; border-radius: .75rem; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: .95rem; overflow-x: auto; margin: 1rem 0 1.5rem; line-height: 1.7; }
+pre .tg { color: #60a5fa; }
+pre .at { color: #fbbf24; }
+pre .st { color: #86efac; }
+pre .kw { color: #c084fc; }
+pre .cm { color: #64748b; }
+
+.info    { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.tip     { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.warn    { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.pozn    { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+
+.uloha   { border-left: 4px solid #3b82f6; background: #eff6ff; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin-bottom: 1.5rem; }
+.uloha h2 { margin: 0 0 .5rem; color: #1e40af; font-size: 1.1rem; border: none; padding: 0; }
+.uloha p, .uloha li { margin: .25rem 0; color: #374151; }
+.projekt  { border-left: 4px solid #22c55e; background: #f0fdf4; }
+.projekt h2 { color: #15803d; }
+.publish  { border-left: 4px solid #0ea5e9; background: #ecfeff; }
+.publish h2 { color: #0369a1; }
+.bonus    { border-left: 4px solid #a855f7; background: #fdf4ff; }
+.bonus h2 { color: #7e22ce; }
+.oddelovac { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+
+.subor { display: inline-block; background: #1e1b4b; color: #a5b4fc; font-family: 'Cascadia Code', monospace; font-size: .85rem; padding: .3rem .8rem; border-radius: .4rem; margin: .3rem 0; }
+
+.krok-list { list-style: none; margin: 0; padding: 0; }
+.krok-list li { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.1rem; }
+.krok-num { background: #4338ca; color: white; font-weight: bold; min-width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; margin-top: .2rem; }
+.krok-list p { margin: 0 0 .3rem; }
+
+.cheat { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+.cheat th { background: #312e81; color: white; padding: .7rem 1rem; text-align: left; }
+.cheat td { padding: .55rem 1rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+.cheat tr:nth-child(even) td { background: #f8fafc; }
+.cheat code { background: #ddd6fe; color: #3730a3; }
+.prazdne td { height: 2.6rem; background: white !important; border: 1px solid #cbd5e1; }
+.otazka { background: #fef9c3; border-left: 4px solid #eab308; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; font-style: italic; }
+.anat { background: #1e293b; border-radius: .75rem; padding: 1.5rem 2rem; margin: 1rem 0; font-family: 'Cascadia Code','Fira Code',monospace; font-size: 1.15rem; line-height: 2.4; color: #e2e8f0; }
+.anat .tg { color: #60a5fa; } .anat .at { color: #fbbf24; } .anat .st { color: #86efac; } .anat .tx { color: #e2e8f0; }
+.anat small { display: block; font-size: .8rem; color: #94a3b8; line-height: 1.5; font-family: 'Segoe UI', sans-serif; }
+details { background: #f1f5f9; border-radius: .5rem; padding: .6rem 1rem; margin: .5rem 0 1rem; }
+details summary { cursor: pointer; color: #4338ca; font-weight: 600; }
+.priv { background: #fef2f2; border-left: 4px solid #ef4444; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+</style>
+</head>
+<body>
+
+<nav>
+  <strong>PRX · II.C · Hodina 04</strong>
+  <a href="#u0">Objavenie</a>
+  <a href="#teoria">Teória</a>
+  <a href="#u1">Úloha 1</a>
+  <a href="#u2">Úloha 2</a>
+  <a href="#u3">Úloha 3</a>
+  <a href="#u4">Úloha 4</a>
+  <a href="#u5">Úloha 5</a>
+  <a href="#bonus">Bonus</a>
+  <a href="#odovzdanie">Odovzdanie</a>
+</nav>
+
+
+<section id="u0">
+  <h1>Hodina 04 — Obrázky</h1>
+  <p style="font-size:1.1rem; color:#64748b;">PRX · II.C · Značkovací jazyk HTML</p>
+  <div class="uloha">
+    <h2>🔎 Objavenie</h2>
+    <ul>
+      <li>Otvor školský web, <code>Ctrl+U</code></li>
+      <li>Nájdi logo alebo fotku v zdrojovom kóde</li>
+      <li>Zapíš: aký je to tag a čo je v ňom napísané</li>
+    </ul>
+  </div>
+  <div class="otazka">💬 Ako by si pridal(a) obrázok do svojej stránky?</div>
+</section>
+
+<section id="teoria">
+  <h2>Teória — heslovite</h2>
+  <ul>
+    <li>Nový tag: <strong>obrázok</strong> (hľadaj v zdrojáku)</li>
+    <li>Je to <strong>prázdny element</strong> — bez obsahu, bez zatváracieho tagu</li>
+    <li>Informácie mu dávame <strong>atribútmi</strong>: <code>nazov="hodnota"</code></li>
+    <li>Súbor s obrázkom musí byť <strong>vedľa stránky</strong> (alebo v podpriečinku)</li>
+  </ul>
+</section>
+
+<section id="u1">
+  <div class="uloha">
+    <h2>Úloha 1 — Prvý obrázok</h2>
+    <ul>
+      <li>V <span class="subor">04_tema</span> vytvor súbor <span class="subor">obrazky.html</span> (kostra: <code>!</code> + Tab, oprav <code>lang</code>, <code>title</code>)</li>
+      <li>V <span class="subor">04_tema</span> vytvor priečinok <span class="subor">obrazky</span> a vlož doň 3 obrázky (vlastné fotky alebo z internetu)</li>
+      <li>Do stránky pridaj nadpis, odsek a <strong>jeden obrázok</strong></li>
+      <li>Potrebné atribúty: <strong>cesta k súboru</strong> + <strong>náhradný text</strong> (názvy zisti z objavenia)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="u2">
+  <div class="uloha">
+    <h2>Úloha 2 — Rozbi to naschvál</h2>
+    <ul>
+      <li>Urob preklep v názve súboru v atribúte</li>
+      <li>Obnov stránku — čo vidíš namiesto obrázka?</li>
+      <li>Oprav preklep. Načo je asi náhradný text?</li>
+      <li>Skús: zmeň veľkosť písmen v názve súboru. Čo sa stane?</li>
+    </ul>
+  </div>
+</section>
+
+<section id="u3">
+  <div class="uloha">
+    <h2>Úloha 3 — Veľkosť</h2>
+    <ul>
+      <li>Nastav obrázku šírku 300 (atribút zisti sám/sama — hľadaj „html img width")</li>
+      <li>Nastav aj výšku inú ako pôvodný pomer — čo sa stane s obrázkom?</li>
+      <li>Ako zachovať pomer strán? (stačí zmeniť jeden rozmer)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="u4">
+  <div class="uloha projekt">
+    <h2>Úloha 4 — Stránka o tvojom hobby alebo meste</h2>
+    <ul>
+      <li>Hlavný nadpis + aspoň 2 podnadpisy (nižšia úroveň nadpisu)</li>
+      <li>Pod každým podnadpisom odsek a obrázok</li>
+      <li>Jeden <strong>odrážkový</strong> zoznam (čo k tomu patrí) a jeden <strong>číslovaný</strong> (poradie krokov / rebríček)</li>
+      <li>Aspoň jedno <strong>zvýraznenie</strong> textu (tučné alebo kurzíva)</li>
+      <li>Pomôcka: zoznam rýchlo cez <code>ul>li*3</code> + Tab, číslovaný cez <code>ol>li*3</code> + Tab</li>
+    </ul>
+  </div>
+</section>
+
+<section id="u5">
+  <div class="uloha">
+    <h2>Úloha 5 — Obrázok ako odkaz</h2>
+    <ul>
+      <li>Spoj dva tagy, ktoré poznáš: po kliknutí na obrázok sa otvorí iná stránka</li>
+      <li>Pomôcka: čo musí byť vnútri čoho?</li>
+    </ul>
+  </div>
+</section>
+
+<section id="bonus">
+  <div class="uloha bonus">
+    <h2>Bonus — skúmaj</h2>
+    <ul>
+      <li>Obrázok s popiskom pod ním — zisti, aké tagy to robia (hľadaj „html figure")</li>
+      <li>Aký je rozdiel medzi formátmi <code>jpg</code>, <code>png</code>, <code>svg</code>? Kedy ktorý?</li>
+      <li>Koľko MB má tvoj najväčší obrázok? Prečo je to pre web problém?</li>
+    </ul>
+  </div>
+</section>
+
+<section id="odovzdanie">
+  <div class="uloha publish">
+    <h2>Odovzdanie</h2>
+    <ul>
+      <li>Nahraj <code>04_tema</code> do repozitára <code>SS_PRX_IIC</code> — aj s priečinkom <code>obrazky</code></li>
+      <li>Do <code>index.html</code> pridaj odkaz na <code>04_tema/obrazky.html</code></li>
+      <li>Otvor živý link — zobrazujú sa obrázky?</li>
+    </ul>
+    <div class="warn">Nezobrazuje sa? Skontroluj: nahral(a) si priečinok s obrázkami? Zhodujú sa veľké/malé písmená v názve?</div>
+  </div>
+</section>
+
+</body>
+</html>
