@@ -66,6 +66,7 @@ pre .cm { color: #64748b; }
   <a href="#u4">Úloha 4</a>
   <a href="#bonus">Bonus</a>
   <a href="#github">Publikovanie</a>
+  <a href="#index">index.html</a>
   <a href="#readme">README</a>
 </nav>
 
@@ -241,6 +242,52 @@ pre .cm { color: #64748b; }
     </ol>
     <div class="pozn">
       💡 <strong>Tip:</strong> ak súbor nazveš <code>index.html</code> a dáš ho do koreňa repozitára, stránka sa otvorí priamo na <code>tvoj-username.github.io/SS_PRX_IIC/</code> bez dlhej cesty.
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- INDEX.HTML -->
+<section id="index">
+  <div class="uloha publish">
+    <h2>🏠 index.html — aby sa stránka otvorila hneď</h2>
+    <p>Ak sa ti po zapnutí Pages otvoril len výpis priečinkov alebo dlhý odkaz, chýba ti <strong>vstupná stránka</strong>. GitHub Pages hľadá v koreni repozitára súbor s presným názvom <code>index.html</code> — ten sa otvorí ako prvý, keď niekto zadá adresu <code>tvoj-username.github.io/SS_PRX_IIC/</code>.</p>
+    <p>Spravíme z neho <strong>rozcestník</strong> — jednoduchú stránku s odkazom na tvoj osobný web (tag <code>&lt;a&gt;</code> už poznáš).</p>
+    <ol class="krok-list">
+      <li>
+        <span class="krok-num">1</span>
+        <div><p>V repozitári <code>SS_PRX_IIC</code> (hneď v hlavnom adresári, <strong>nie</strong> v priečinku <code>03_tema</code>) klikni <strong>Add file → Create new file</strong>.</p></div>
+      </li>
+      <li>
+        <span class="krok-num">2</span>
+        <div><p>Názov súboru napíš presne: <code>index.html</code> (malými písmenami).</p></div>
+      </li>
+      <li>
+        <span class="krok-num">3</span>
+        <div>
+          <p>Vlož túto kostru a prepíš si ju na seba:</p>
+          <pre><span class="tg">&lt;!DOCTYPE html&gt;</span>
+<span class="tg">&lt;html</span> <span class="at">lang</span>=<span class="st">"sk"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;head&gt;</span>
+  <span class="tg">&lt;meta</span> <span class="at">charset</span>=<span class="st">"UTF-8"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;title&gt;</span>Moje stránky — tvoje meno<span class="tg">&lt;/title&gt;</span>
+<span class="tg">&lt;/head&gt;</span>
+<span class="tg">&lt;body&gt;</span>
+  <span class="tg">&lt;h1&gt;</span>Moje stránky<span class="tg">&lt;/h1&gt;</span>
+  <span class="tg">&lt;p&gt;</span>Vitaj! Tu nájdeš moje práce z predmetu PRX.<span class="tg">&lt;/p&gt;</span>
+  <span class="tg">&lt;p&gt;&lt;a</span> <span class="at">href</span>=<span class="st">"03_tema/moja-stranka.html"</span><span class="tg">&gt;</span>Môj osobný web<span class="tg">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="tg">&lt;/body&gt;</span>
+<span class="tg">&lt;/html&gt;</span></pre>
+        </div>
+      </li>
+      <li>
+        <span class="krok-num">4</span>
+        <div><p>Dole klikni <strong>Commit changes</strong>. Počkaj 1–2 minúty a otvor <code>tvoj-username.github.io/SS_PRX_IIC/</code> — mala by sa zobraziť tvoja vstupná stránka s odkazom na osobný web.</p></div>
+      </li>
+    </ol>
+    <div class="pozn">
+      🔎 <strong>Skontroluj:</strong> odkaz <code>03_tema/moja-stranka.html</code> musí presne sedieť s tým, ako sa volá tvoj priečinok a súbor v repozitári (veľké/malé písmená, pomlčky). Ak odkaz nefunguje, najčastejšie je to preklep v názve.
     </div>
   </div>
 </section>
