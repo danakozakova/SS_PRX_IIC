@@ -16,7 +16,7 @@
 -  [obrazky](obrazky)
 
 19.10.2026
-- dokončime nahrávanie na github
+- dokončime obrázky, nahrávanie na github, úprava index.html
 - vysvetlíme si dopĺňanie tabulátorom
 
 # 05 Linky
