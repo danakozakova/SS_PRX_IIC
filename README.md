@@ -12,3 +12,4 @@
 
 # 04 Obrázky:
 -  [04_obrazky_zadanie.html](https://danakozakova.github.io/SS_PRX_IIC/04_obrazky_zadanie.html)
+-  [04_obrazky_cvicenia_zadanie.html](https://danakozakova.github.io/SS_PRX_IIC/04_obrazky_cvicenia_zadanie.html)
