@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRX | 04 — Obrázky: cvičenia podľa predlohy (žiaci)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: #1e293b; font-size: 20px; line-height: 1.7; }
+
+nav { position: sticky; top: 0; background: #1e1b4b; color: white; display: flex; gap: .25rem; padding: .6rem 2rem; flex-wrap: wrap; z-index: 100; align-items: center; }
+nav strong { color: white; margin-right: .5rem; }
+nav a { color: #a5b4fc; text-decoration: none; font-size: .85rem; padding: .3rem .9rem; border-radius: .25rem; }
+nav a:hover { background: #312e81; color: white; }
+
+section { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 2.5rem; border-bottom: 1px solid #e2e8f0; }
+section:last-child { border-bottom: none; }
+
+h1 { font-size: 2.2rem; color: #1e1b4b; margin-bottom: .5rem; }
+h2 { font-size: 1.8rem; color: #312e81; margin-bottom: 1.2rem; padding-bottom: .5rem; border-bottom: 2px solid #e0e7ff; }
+h3 { font-size: 1.25rem; color: #4338ca; margin: 1.75rem 0 .6rem; }
+p  { margin-bottom: .85rem; }
+ul, ol { margin: .5rem 0 .85rem 1.5rem; }
+li { margin-bottom: .5rem; }
+
+code { background: #e0e7ff; color: #3730a3; padding: .15rem .5rem; border-radius: .3rem; font-size: .88em; font-family: 'Cascadia Code', 'Fira Code', monospace; }
+pre  { background: #0f172a; color: #7dd3fc; padding: 1.4rem 1.8rem; border-radius: .75rem; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: .95rem; overflow-x: auto; margin: 1rem 0 1.5rem; line-height: 1.7; }
+pre .tg { color: #60a5fa; }
+pre .at { color: #fbbf24; }
+pre .st { color: #86efac; }
+pre .kw { color: #c084fc; }
+pre .cm { color: #64748b; }
+
+.info    { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.tip     { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.warn    { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.pozn    { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+
+.uloha   { border-left: 4px solid #3b82f6; background: #eff6ff; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin-bottom: 1.5rem; }
+.uloha h2 { margin: 0 0 .5rem; color: #1e40af; font-size: 1.1rem; border: none; padding: 0; }
+.uloha p, .uloha li { margin: .25rem 0; color: #374151; }
+.projekt  { border-left: 4px solid #22c55e; background: #f0fdf4; }
+.projekt h2 { color: #15803d; }
+.publish  { border-left: 4px solid #0ea5e9; background: #ecfeff; }
+.publish h2 { color: #0369a1; }
+.bonus    { border-left: 4px solid #a855f7; background: #fdf4ff; }
+.bonus h2 { color: #7e22ce; }
+.oddelovac { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+
+.subor { display: inline-block; background: #1e1b4b; color: #a5b4fc; font-family: 'Cascadia Code', monospace; font-size: .85rem; padding: .3rem .8rem; border-radius: .4rem; margin: .3rem 0; }
+
+.krok-list { list-style: none; margin: 0; padding: 0; }
+.krok-list li { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.1rem; }
+.krok-num { background: #4338ca; color: white; font-weight: bold; min-width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; margin-top: .2rem; }
+.krok-list p { margin: 0 0 .3rem; }
+
+.cheat { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+.cheat th { background: #312e81; color: white; padding: .7rem 1rem; text-align: left; }
+.cheat td { padding: .55rem 1rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+.cheat tr:nth-child(even) td { background: #f8fafc; }
+.cheat code { background: #ddd6fe; color: #3730a3; }
+.prazdne td { height: 2.6rem; background: white !important; border: 1px solid #cbd5e1; }
+.otazka { background: #fef9c3; border-left: 4px solid #eab308; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; font-style: italic; }
+.anat { background: #1e293b; border-radius: .75rem; padding: 1.5rem 2rem; margin: 1rem 0; font-family: 'Cascadia Code','Fira Code',monospace; font-size: 1.15rem; line-height: 2.4; color: #e2e8f0; }
+.anat .tg { color: #60a5fa; } .anat .at { color: #fbbf24; } .anat .st { color: #86efac; } .anat .tx { color: #e2e8f0; }
+.anat small { display: block; font-size: .8rem; color: #94a3b8; line-height: 1.5; font-family: 'Segoe UI', sans-serif; }
+details { background: #f1f5f9; border-radius: .5rem; padding: .6rem 1rem; margin: .5rem 0 1rem; }
+details summary { cursor: pointer; color: #4338ca; font-weight: 600; }
+.priv { background: #fef2f2; border-left: 4px solid #ef4444; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+
+.predloha { max-width: 540px; width: 100%; border: 1px solid #cbd5e1; border-radius: .5rem; box-shadow: 0 6px 20px rgba(0,0,0,.12); margin: 1rem 0; background: white; }
+.check { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .98rem; }
+.check th { background: #312e81; color: white; padding: .6rem 1rem; text-align: left; }
+.check td { padding: .55rem 1rem; border-bottom: 1px solid #e2e8f0; }
+.check td:first-child { text-align: center; width: 3rem; font-size: 1.2rem; }
+.check tr:nth-child(even) td { background: #f8fafc; }
+</style>
+</head>
+<body>
+
+<nav>
+  <strong>PRX · II.C · Hodina 04 · Cvičenia</strong>
+  <a href="#predloha">Predloha</a>
+  <a href="#mapa">Mapa predlohy</a>
+  <a href="#priprava">Príprava</a>
+  <a href="#kroky">Kroky 1–6</a>
+  <a href="#extra">Extra úlohy</a>
+  <a href="#bonus">Bonus</a>
+  <a href="#kontrola">Kontrola</a>
+  <a href="#odovzdanie">Odovzdanie</a>
+</nav>
+
+
+<section id="predloha">
+  <h1>Hodina 04 — Cvičenia podľa predlohy</h1>
+  <p style="font-size:1.1rem; color:#64748b;">PRX · II.C · Značkovací jazyk HTML — obrázky, nadpisy, zoznamy</p>
+
+  <div class="info">
+    🎯 <strong>Tvoja úloha:</strong> vytvoriť stránku, ktorá vyzerá <strong>ako táto predloha</strong>.
+    Text, fotky a údaje si <strong>nahraď vlastnými</strong> (tvoje mesto, hobby, šport, obľúbené miesto…).
+    Predloha je <em>vzor rozloženia</em> — dôležité je, aké <strong>tagy</strong> použiješ, nie presné slová.
+  </div>
+
+  <img src="04_obrazky_predloha.png" alt="Predloha hotovej stránky o Roháčoch" class="predloha">
+
+  <div class="pozn">
+    💡 Takto stránka vyzerá <strong>bez CSS</strong> — iba zo samotných HTML tagov (preto to vyzerá „obyčajne").
+    Vzhľad (farby, fonty) budeme riešiť neskôr. Dnes ide o <strong>správne tagy a obrázky</strong>.
+  </div>
+</section>
+
+<section id="mapa">
+  <h2>Mapa predlohy — čo ktorý tag robí</h2>
+  <p>Predtým, než začneš písať, si „prečítaj" predlohu. Každá časť = jeden tag, ktorý už poznáš:</p>
+  <table class="cheat">
+    <tr><th>Časť v predlohe</th><th>Tag</th></tr>
+    <tr><td>Veľký názov hore (<em>Roháče – Západné Tatry</em>)</td><td><code>&lt;h1&gt;</code></td></tr>
+    <tr><td>Úvodný odsek; tučné slovo + <em>šikmé</em> slovo v ňom</td><td><code>&lt;p&gt;</code> + <code>&lt;strong&gt;</code> + <code>&lt;em&gt;</code></td></tr>
+    <tr><td>Veľká hlavná fotka pod úvodom</td><td><code>&lt;img&gt;</code> (so <code>src</code> a <code>alt</code>, <code>width="420"</code>)</td></tr>
+    <tr><td>Menšie nadpisy sekcií (<em>Čo tam uvidíš</em>, <em>Galéria</em>…)</td><td><code>&lt;h2&gt;</code></td></tr>
+    <tr><td>Zoznam s odrážkami</td><td><code>&lt;ul&gt;</code> + <code>&lt;li&gt;</code></td></tr>
+    <tr><td>Číslovaný zoznam (postup túry)</td><td><code>&lt;ol&gt;</code> + <code>&lt;li&gt;</code></td></tr>
+    <tr><td>Fotka s popiskom pod ňou</td><td><code>&lt;figure&gt;</code> + <code>&lt;figcaption&gt;</code></td></tr>
+    <tr><td>Malá fotka úplne dole, ktorá je <strong>odkaz</strong></td><td><code>&lt;a&gt;</code> okolo <code>&lt;img&gt;</code></td></tr>
+  </table>
+  <div class="otazka">💬 Koľko <code>&lt;img&gt;</code> tagov je v predlohe? A koľko rôznych obrázkov?</div>
+</section>
+
+<section id="priprava">
+  <h2>Príprava — priečinok a obrázky</h2>
+  <ol class="krok-list">
+    <li>
+      <span class="krok-num">1</span>
+      <div>
+        <p>V priečinku <span class="subor">04_tema</span> vytvor súbor <span class="subor">rohace.html</span>
+        (alebo pomenuj podľa svojej témy, napr. <code>mesto.html</code>). Kostra: <code>!</code> + <strong>Tab</strong>,
+        oprav <code>lang="sk"</code> a <code>&lt;title&gt;</code>.</p>
+      </div>
+    </li>
+    <li>
+      <span class="krok-num">2</span>
+      <div>
+        <p>Vedľa vytvor priečinok <span class="subor">obrazky</span> a daj doň <strong>3 obrázky</strong>
+        (vlastné fotky alebo z internetu).</p>
+        <div class="tip">💡 Nemáš vlastné fotky? Použi pripravené v priečinku <code>obrazky/</code>:
+        <code>rohace-plesa.jpg</code>, <code>rohace-hreben.jpg</code>, <code>rohace-dolina.jpg</code>.</div>
+      </div>
+    </li>
+  </ol>
+  <div class="warn">⚠️ Názvy súborov: malými písmenami, <strong>bez medzier a diakritiky</strong> — napr. <code>moje-mesto.jpg</code>.</div>
+</section>
+
+<section id="kroky">
+  <h2>Postav predlohu krok po kroku</h2>
+  <p>Píš do <code>&lt;body&gt;</code>. Po každom kroku <strong>ulož</strong> (<code>Ctrl+S</code>) a <strong>obnov</strong> prehliadač — porovnaj s predlohou.</p>
+
+  <div class="uloha">
+    <h2>Krok 1 — Nadpis a úvod</h2>
+    <ul>
+      <li>Hlavný nadpis <code>&lt;h1&gt;</code> s názvom stránky.</li>
+      <li>Úvodný odsek <code>&lt;p&gt;</code>. Jedno slovo daj <strong>tučné</strong> (<code>&lt;strong&gt;</code>) a jedno <em>šikmé</em> (<code>&lt;em&gt;</code>).</li>
+    </ul>
+  </div>
+
+  <div class="uloha">
+    <h2>Krok 2 — Hlavná fotka</h2>
+    <ul>
+      <li>Pod úvod pridaj <strong>veľký obrázok</strong>. Potrebuje <code>src</code> (cesta) a <code>alt</code> (náhradný text).</li>
+      <li>Nastav mu <code>width="420"</code>.</li>
+    </ul>
+    <div class="anat">
+      <span class="tg">&lt;img</span> <span class="at">src</span>=<span class="st">"obrazky/…"</span> <span class="at">alt</span>=<span class="st">"…"</span> <span class="at">width</span>=<span class="st">"420"</span><span class="tg">&gt;</span>
+      <small>prázdny element — žiadny zatvárací tag · doplň si <code>src</code> a <code>alt</code> sám/sama</small>
+    </div>
+  </div>
+
+  <div class="uloha">
+    <h2>Krok 3 — Dve sekcie s podnadpismi</h2>
+    <ul>
+      <li>Pridaj dva podnadpisy <code>&lt;h2&gt;</code> (napr. „Čo tam uvidíš" a „Galéria").</li>
+      <li>Pod každý daj aspoň jeden odsek <code>&lt;p&gt;</code>.</li>
+    </ul>
+  </div>
+
+  <div class="uloha">
+    <h2>Krok 4 — Dva zoznamy</h2>
+    <ul>
+      <li>Jeden <strong>odrážkový</strong> zoznam <code>&lt;ul&gt;</code> — čo tam patrí / čo uvidíš.</li>
+      <li>Jeden <strong>číslovaný</strong> zoznam <code>&lt;ol&gt;</code> — poradie krokov / postup.</li>
+    </ul>
+    <div class="tip">💡 Rýchlo cez Emmet: <code>ul&gt;li*4</code> + <strong>Tab</strong>, resp. <code>ol&gt;li*4</code> + <strong>Tab</strong>.</div>
+  </div>
+
+  <div class="uloha">
+    <h2>Krok 5 — Fotka s popiskom (figure)</h2>
+    <ul>
+      <li>Pridaj druhý obrázok a pod neho krátky <strong>popisok</strong>.</li>
+      <li>Použi na to dvojicu tagov <code>&lt;figure&gt;</code> a <code>&lt;figcaption&gt;</code>.</li>
+    </ul>
+    <details><summary>Nápoveda — do čoho čo patrí?</summary>
+      <p><code>&lt;img&gt;</code> aj <code>&lt;figcaption&gt;</code> idú <strong>vnútri</strong> <code>&lt;figure&gt;</code>. Popisok je <em>pod</em> obrázkom.</p>
+    </details>
+  </div>
+
+  <div class="uloha">
+    <h2>Krok 6 — Obrázok ako odkaz</h2>
+    <ul>
+      <li>Úplne dole urob malú fotku (<code>width="200"</code>), ktorá je <strong>odkaz</strong> — po kliknutí sa otvorí iná stránka.</li>
+      <li>Spoj dva tagy, ktoré poznáš: <code>&lt;a&gt;</code> a <code>&lt;img&gt;</code>.</li>
+    </ul>
+    <div class="otazka">💬 Čo musí byť vnútri čoho — <code>img</code> v <code>a</code>, alebo <code>a</code> v <code>img</code>?</div>
+  </div>
+</section>
+
+<section id="extra">
+  <h2>Extra úlohy — keď máš predlohu hotovú</h2>
+
+  <div class="uloha">
+    <h2>E1 — Rozbi to naschvál</h2>
+    <ul>
+      <li>Urob preklep v názve súboru v <code>src</code>. Obnov — čo sa zobrazí namiesto obrázka? Načo je <code>alt</code>?</li>
+      <li>Zmeň veľké/malé písmená v názve (napr. <code>Plesa.JPG</code>). Funguje to u teba? A fungovalo by to na internete?</li>
+      <li>Oprav späť.</li>
+    </ul>
+  </div>
+
+  <div class="uloha">
+    <h2>E2 — Pohraj sa s rozmermi</h2>
+    <ul>
+      <li>Zmeň hlavnej fotke <code>width</code> na <code>250</code>, potom na <code>600</code>. Čo sa deje?</li>
+      <li>Pridaj <code>height="120"</code> k šírke <code>width="420"</code> — ako teraz vyzerá fotka? Prečo?</li>
+      <li>Nechaj len <strong>jeden</strong> rozmer. Čo sa stane s pomerom strán?</li>
+    </ul>
+  </div>
+
+  <div class="uloha">
+    <h2>E3 — Hľadaj chybu</h2>
+    <p>Nižšie sú 4 riadky. Súbor sa volá <code>plesa.jpg</code> a leží v priečinku <code>obrazky</code>. Nájdi, čo je v každom riadku zle:</p>
+    <pre><span class="tg">&lt;img</span> <span class="at">src</span>=<span class="st">"obrazky/plesa.jpg"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;img</span> <span class="at">src</span>=<span class="st">"obrazky/Plesa.JPG"</span> <span class="at">alt</span>=<span class="st">"Plesá"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;img</span> <span class="at">src</span>=<span class="st">"obrazky\plesa.jpg"</span> <span class="at">alt</span>=<span class="st">"Plesá"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;img</span> <span class="at">src</span>=<span class="st">"plesa.jpg"</span> <span class="at">alt</span>=<span class="st">"Plesá"</span><span class="tg">&gt;&lt;/img&gt;</span></pre>
+    <details><summary>Riešenie</summary>
+      <ul>
+        <li>1 — chýba <code>alt</code></li>
+        <li>2 — iné veľké/malé písmená (na internete sa fotka nenačíta)</li>
+        <li>3 — spätné lomítko <code>\</code>; v cestách vždy <code>/</code></li>
+        <li>4 — chýba priečinok <code>obrazky/</code> v ceste a navyše zatvárací <code>&lt;/img&gt;</code> (prázdny element ho nemá)</li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="uloha">
+    <h2>E4 — Tri obrázky vedľa / pod sebou</h2>
+    <ul>
+      <li>Daj za seba tri <code>&lt;img&gt;</code> s rovnakou šírkou (napr. <code>width="200"</code>). Zobrazia sa vedľa seba alebo pod sebou?</li>
+      <li>Skús jeden z nich dať do samostatného odseku <code>&lt;p&gt;</code>. Zmenilo sa niečo?</li>
+    </ul>
+  </div>
+</section>
+
+<section id="bonus">
+  <div class="uloha bonus">
+    <h2>⭐ Bonus — skúmaj</h2>
+    <ul>
+      <li>Aký je rozdiel medzi <code>jpg</code>, <code>png</code>, <code>svg</code>? Kedy použiješ ktorý? (hľadaj „jpg vs png vs svg")</li>
+      <li>Koľko MB má tvoj najväčší obrázok? Prečo je veľký súbor pre web problém?</li>
+      <li>Zisti, čo robí atribút <code>title</code> na obrázku — pridaj ho a nájdi, kedy sa prejaví.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="kontrola">
+  <h2>Kontrola — odškrtni si (✔ / ✗)</h2>
+  <p>Než odovzdáš, prejdi predlohu a svoju stránku bod po bode:</p>
+  <table class="check">
+    <tr><th>✔</th><th>Mám to na stránke?</th></tr>
+    <tr><td>☐</td><td>jeden <code>&lt;h1&gt;</code> a aspoň dva <code>&lt;h2&gt;</code></td></tr>
+    <tr><td>☐</td><td>úvodný odsek s <code>&lt;strong&gt;</code> aj <code>&lt;em&gt;</code></td></tr>
+    <tr><td>☐</td><td>aspoň 3 obrázky, každý má <code>src</code> aj <code>alt</code></td></tr>
+    <tr><td>☐</td><td>hlavná fotka má nastavenú <code>width</code></td></tr>
+    <tr><td>☐</td><td>odrážkový <code>&lt;ul&gt;</code> aj číslovaný <code>&lt;ol&gt;</code> zoznam</td></tr>
+    <tr><td>☐</td><td>fotka s popiskom cez <code>&lt;figure&gt;</code> + <code>&lt;figcaption&gt;</code></td></tr>
+    <tr><td>☐</td><td>obrázok, ktorý je odkaz (<code>&lt;a&gt;</code> okolo <code>&lt;img&gt;</code>)</td></tr>
+    <tr><td>☐</td><td>žiadne <code>&lt;/img&gt;</code>, cesty s <code>/</code>, bez diakritiky</td></tr>
+  </table>
+</section>
+
+<section id="odovzdanie">
+  <div class="uloha publish">
+    <h2>Odovzdanie</h2>
+    <ul>
+      <li>Nahraj celý priečinok <span class="subor">04_tema</span> do repozitára <code>SS_PRX_IIC</code> — <strong>aj s priečinkom <code>obrazky</code></strong>.</li>
+      <li>Do <code>index.html</code> pridaj odkaz na svoju novú stránku (napr. <code>04_tema/rohace.html</code>).</li>
+      <li>Otvor živý link — zobrazujú sa všetky obrázky?</li>
+    </ul>
+    <div class="warn">Nezobrazuje sa fotka? Skontroluj: nahral(a) si priečinok <code>obrazky</code>? Sedia veľké/malé písmená v názve súboru?</div>
+  </div>
+</section>
+
+</body>
+</html>
