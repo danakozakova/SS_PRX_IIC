@@ -15,9 +15,9 @@
 -  [04_obrazky_cvicenia_zadanie.html](https://danakozakova.github.io/SS_PRX_IIC/04_obrazky_cvicenia_zadanie.html)
 -  [obrazky](obrazky)
 
-
+19.10.2026
 - dokončime nahrávanie na github
 - vysvetlíme si dopĺňanie tabulátorom
 
-# Linky
+# 05 Linky
 - 
