@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRX | 05 — Odkazy (žiaci)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: #1e293b; font-size: 20px; line-height: 1.7; }
+
+nav { position: sticky; top: 0; background: #1e1b4b; color: white; display: flex; gap: .25rem; padding: .6rem 2rem; flex-wrap: wrap; z-index: 100; align-items: center; }
+nav strong { color: white; margin-right: .5rem; }
+nav a { color: #a5b4fc; text-decoration: none; font-size: .85rem; padding: .3rem .9rem; border-radius: .25rem; }
+nav a:hover { background: #312e81; color: white; }
+
+section { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 2.5rem; border-bottom: 1px solid #e2e8f0; }
+section:last-child { border-bottom: none; }
+
+h1 { font-size: 2.2rem; color: #1e1b4b; margin-bottom: .5rem; }
+h2 { font-size: 1.8rem; color: #312e81; margin-bottom: 1.2rem; padding-bottom: .5rem; border-bottom: 2px solid #e0e7ff; }
+h3 { font-size: 1.25rem; color: #4338ca; margin: 1.75rem 0 .6rem; }
+p  { margin-bottom: .85rem; }
+ul, ol { margin: .5rem 0 .85rem 1.5rem; }
+li { margin-bottom: .5rem; }
+
+code { background: #e0e7ff; color: #3730a3; padding: .15rem .5rem; border-radius: .3rem; font-size: .88em; font-family: 'Cascadia Code', 'Fira Code', monospace; }
+pre  { background: #0f172a; color: #7dd3fc; padding: 1.4rem 1.8rem; border-radius: .75rem; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: .95rem; overflow-x: auto; margin: 1rem 0 1.5rem; line-height: 1.7; }
+pre .tg { color: #60a5fa; }
+pre .at { color: #fbbf24; }
+pre .st { color: #86efac; }
+pre .kw { color: #c084fc; }
+pre .cm { color: #64748b; }
+
+.info    { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.tip     { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.warn    { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.pozn    { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+
+.uloha   { border-left: 4px solid #3b82f6; background: #eff6ff; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin-bottom: 1.5rem; }
+.uloha h2 { margin: 0 0 .5rem; color: #1e40af; font-size: 1.1rem; border: none; padding: 0; }
+.uloha p, .uloha li { margin: .25rem 0; color: #374151; }
+.projekt  { border-left: 4px solid #22c55e; background: #f0fdf4; }
+.projekt h2 { color: #15803d; }
+.publish  { border-left: 4px solid #0ea5e9; background: #ecfeff; }
+.publish h2 { color: #0369a1; }
+.bonus    { border-left: 4px solid #a855f7; background: #fdf4ff; }
+.bonus h2 { color: #7e22ce; }
+.oddelovac { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+
+.subor { display: inline-block; background: #1e1b4b; color: #a5b4fc; font-family: 'Cascadia Code', monospace; font-size: .85rem; padding: .3rem .8rem; border-radius: .4rem; margin: .3rem 0; }
+
+.krok-list { list-style: none; margin: 0; padding: 0; }
+.krok-list li { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.1rem; }
+.krok-num { background: #4338ca; color: white; font-weight: bold; min-width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; margin-top: .2rem; }
+.krok-list p { margin: 0 0 .3rem; }
+
+.cheat { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+.cheat th { background: #312e81; color: white; padding: .7rem 1rem; text-align: left; }
+.cheat td { padding: .55rem 1rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+.cheat tr:nth-child(even) td { background: #f8fafc; }
+.cheat code { background: #ddd6fe; color: #3730a3; }
+.otazka { background: #fef9c3; border-left: 4px solid #eab308; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; font-style: italic; }
+.anat { background: #1e293b; border-radius: .75rem; padding: 1.5rem 2rem; margin: 1rem 0; font-family: 'Cascadia Code','Fira Code',monospace; font-size: 1.15rem; line-height: 2.4; color: #e2e8f0; }
+.anat .tg { color: #60a5fa; } .anat .at { color: #fbbf24; } .anat .st { color: #86efac; } .anat .tx { color: #e2e8f0; }
+.anat small { display: block; font-size: .8rem; color: #94a3b8; line-height: 1.5; font-family: 'Segoe UI', sans-serif; }
+details { background: #f1f5f9; border-radius: .5rem; padding: .6rem 1rem; margin: .5rem 0 1rem; }
+details summary { cursor: pointer; color: #4338ca; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<nav>
+  <strong>PRX · II.C · Hodina 05</strong>
+  <a href="#u0">Objavenie</a>
+  <a href="#dokonci">Dokonči z minula</a>
+  <a href="#u1">Úloha 1</a>
+  <a href="#u2">Úloha 2</a>
+  <a href="#u3">Úloha 3</a>
+  <a href="#u4">Úloha 4</a>
+  <a href="#u5">Úloha 5</a>
+  <a href="#bonus">Bonus</a>
+  <a href="#odovzdanie">Odovzdanie</a>
+  <a href="#u6">Úloha 6</a>
+  <a href="#u7">Úloha 7</a>
+  <a href="#u8">Úloha 8</a>
+  <a href="#odovzdanie2">Záver</a>
+</nav>
+
+
+<section id="u0">
+  <h1>Hodina 05 — Odkazy (tag <code>&lt;a&gt;</code>)</h1>
+  <p style="font-size:1.1rem; color:#64748b;">PRX · II.C · Pokračujeme v súbore <span class="subor">rohace.html</span></p>
+  <div class="uloha">
+    <h2>🔎 Objavenie</h2>
+    <ul>
+      <li>Otvor školský web <code>sstv.sk</code>, <code>Ctrl+U</code></li>
+      <li>Nájdi v zdrojáku nejaký odkaz (menu, „kontakt"…)</li>
+      <li>Zapíš: ktorý je to tag a čo je napísané v <code>href</code></li>
+    </ul>
+  </div>
+  <div class="info">💡 Dnes <strong>nevytvárame nový súbor</strong> — všetko dopĺňame do <code>rohace.html</code> (a raz do <code>index.html</code>).</div>
+</section>
+
+<hr class="oddelovac">
+
+<section id="dokonci">
+  <div class="uloha publish">
+    <h2>Najprv dokonči z minula — nahraj tému 04</h2>
+    <p>Ak si to ešte nestihol(a): nahraj celý priečinok <span class="subor">04_tema</span> (aj s priečinkom <code>obrazky</code>) do repozitára <code>SS_PRX_IIC</code> a over, že sa na živom linku zobrazujú obrázky.</p>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<section id="u1">
+  <div class="uloha">
+    <h2>Úloha 1 — Odkaz na cudziu stránku</h2>
+    <ul>
+      <li>Do <code>rohace.html</code> pridaj textový odkaz na nejakú <strong>cudziu</strong> stránku (napr. oficiálny web o Tatrách alebo tvojej téme).</li>
+      <li>Pozor: pri cudzej stránke patrí do <code>href</code> <strong>celá adresa</strong> aj s <code>https://</code>.</li>
+    </ul>
+    <div class="anat">
+      <span class="tg">&lt;a</span> <span class="at">href</span>=<span class="st">"https://…"</span><span class="tg">&gt;</span><span class="tx">text odkazu</span><span class="tg">&lt;/a&gt;</span>
+      <small>odkaz NIE je prázdny element — má text medzi tagmi aj zatvárací <code>&lt;/a&gt;</code></small>
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<section id="u2">
+  <div class="uloha">
+    <h2>Úloha 2 — Odkaz späť na úvod (navigácia)</h2>
+    <ul>
+      <li>Na koniec <code>rohace.html</code> pridaj odkaz <strong>„← Späť na úvod"</strong>, ktorý vedie na <code>index.html</code> v koreni repozitára.</li>
+      <li>Tvoj súbor je v <code>04_tema/</code>, <code>index.html</code> je o priečinok vyššie — na akú cestu to ukazuje?</li>
+    </ul>
+    <div class="otazka">💬 Vedľa, podpriečinok, alebo o priečinok vyššie? Ktorý zápis cesty to je?</div>
+    <details><summary>Nápoveda</summary><p>O priečinok vyššie sa ide cez <code>../</code>.</p></details>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<section id="u3">
+  <div class="uloha">
+    <h2>Úloha 3 — Z úvodu odkáž na tému (dokončenie z minula)</h2>
+    <ul>
+      <li>Otvor <code>index.html</code> (rozcestník v koreni repozitára).</li>
+      <li>Pridaj doň odkaz na tvoju novú stránku: <code>04_tema/rohace.html</code>.</li>
+      <li>Teraz sa dá klikať <strong>tam aj späť</strong> — máš navigáciu. 🎉</li>
+    </ul>
+    <div class="tip">💡 Toto je presne ten odkaz z <code>index.html</code> na tému 04, ktorý sme minule nestihli.</div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<section id="u4">
+  <div class="uloha">
+    <h2>Úloha 4 — Odkaz na e-mail</h2>
+    <ul>
+      <li>Do <code>rohace.html</code> pridaj odsek „Kontakt" a v ňom odkaz na e-mail.</li>
+      <li>Do <code>href</code> daj <code>mailto:</code> a za to e-mailovú adresu.</li>
+    </ul>
+    <div class="anat">
+      <span class="tg">&lt;a</span> <span class="at">href</span>=<span class="st">"mailto:tvoj.email@…"</span><span class="tg">&gt;</span><span class="tx">napíš mi</span><span class="tg">&lt;/a&gt;</span>
+      <small>po kliknutí sa otvorí e-mailový program</small>
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<section id="u5">
+  <div class="uloha">
+    <h2>Úloha 5 — Otvoriť v novom okne</h2>
+    <ul>
+      <li>Vráť sa k odkazu na cudziu stránku (Úloha 1) a nastav, nech sa otvorí v <strong>novej karte</strong>.</li>
+      <li>Pridaj atribút <code>target="_blank"</code>.</li>
+      <li>Vyskúšaj: odíde ti tvoja stránka, alebo ostane otvorená?</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<section id="bonus">
+  <div class="uloha bonus">
+    <h2>⭐ Bonus — skúmaj</h2>
+    <ul>
+      <li><strong>Skok v rámci stránky (kotva):</strong> daj niektorému nadpisu <code>id="galeria"</code> a vytvor odkaz <code>href="#galeria"</code>. Čo spraví kliknutie?</li>
+      <li><strong>Menu:</strong> obal 2–3 odkazy do tagu <code>&lt;nav&gt;</code> — zisti, načo taký tag je.</li>
+      <li><strong>Tip pri nadídení myšou:</strong> pridaj odkazu atribút <code>title="…"</code> a nájdi, kedy sa prejaví.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<section id="odovzdanie">
+  <div class="uloha publish">
+    <h2>Odovzdanie</h2>
+    <ul>
+      <li>Nahraj zmenené súbory (<code>04_tema/rohace.html</code> a <code>index.html</code>) do repozitára <code>SS_PRX_IIC</code>.</li>
+      <li>Otvor živý link a <strong>preklikaj</strong>: úvod → Roháče → späť na úvod. Funguje všetko?</li>
+      <li>Skontroluj aj cudzí odkaz (otvorí sa?) a <code>mailto</code>.</li>
+    </ul>
+    <div class="warn">Odkaz nefunguje? Najčastejšie je to <strong>preklep v ceste</strong> alebo zlé veľké/malé písmená v názve súboru (na GitHube na tom záleží).</div>
+  </div>
+</section>
+
+
+<section style="background:#e0e7ff; text-align:center; padding:2rem;">
+  <h1 style="color:#312e81; margin:0;">Druhá časť — viac stránok a navigácia</h1>
+  <p style="font-size:1.1rem; color:#4338ca; margin:.5rem 0 0;">Teraz tvoj web rozšírime: pridáš novú podstránku, spoločné menu a obsah stránky.</p>
+</section>
+
+<hr class="oddelovac">
+
+<section id="u6">
+  <div class="uloha projekt">
+    <h2>Úloha 6 — Druhá podstránka</h2>
+    <ul>
+      <li>V repozitári vytvor priečinok <span class="subor">05_tema</span>.</li>
+      <li>V ňom vytvor novú HTML stránku o <strong>ďalšom mieste alebo téme</strong> podľa vlastného výberu (napr. <code>orava.html</code>, <code>tatry.html</code>, <code>hory.html</code>…).</li>
+      <li>Stránka musí obsahovať:
+        <ul>
+          <li>základnú HTML kostru (<code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>)</li>
+          <li>nadpis <code>&lt;h1&gt;</code> a aspoň dva podnadpisy <code>&lt;h2&gt;</code></li>
+          <li>aspoň 3 odseky textu</li>
+          <li>aspoň 1 obrázok (priečinok <code>obrazky/</code> v <code>05_tema</code>)</li>
+          <li>odkaz na cudziu stránku (s <code>https://</code> a <code>target="_blank"</code>)</li>
+        </ul>
+      </li>
+      <li>V <code>index.html</code> pridaj odkaz na túto novú stránku.</li>
+    </ul>
+    <div class="tip">💡 Použi všetko, čo už vieš — <code>h1</code>, <code>h2</code>, <code>p</code>, <code>img</code>, <code>a</code>, <code>figure</code>. Toto je tvoja druhá stránka!</div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<section id="u7">
+  <div class="uloha">
+    <h2>Úloha 7 — Navigačné menu na každej stránke</h2>
+    <p>Teraz spravíme, aby sa dalo z <strong>každej</strong> stránky dostať na <strong>každú</strong> inú. Na to slúži tag <code>&lt;nav&gt;</code> — navigačné menu.</p>
+    <ul>
+      <li>Na vrch <code>&lt;body&gt;</code> <strong>každej</strong> stránky (<code>index.html</code>, <code>rohace.html</code>, nová stránka) pridaj rovnaké menu:</li>
+    </ul>
+<pre><span class="tg">&lt;nav&gt;</span>
+  <span class="tg">&lt;a</span> <span class="at">href</span>=<span class="st">"<em>cesta-na-index</em>"</span><span class="tg">&gt;</span>Úvod<span class="tg">&lt;/a&gt;</span>
+  <span class="tg">&lt;a</span> <span class="at">href</span>=<span class="st">"<em>cesta-na-rohace</em>"</span><span class="tg">&gt;</span>Roháče<span class="tg">&lt;/a&gt;</span>
+  <span class="tg">&lt;a</span> <span class="at">href</span>=<span class="st">"<em>cesta-na-novu-stranku</em>"</span><span class="tg">&gt;</span>Nová téma<span class="tg">&lt;/a&gt;</span>
+<span class="tg">&lt;/nav&gt;</span></pre>
+    <ul>
+      <li>⚠️ <strong>Pozor na cesty!</strong> Z každého priečinka sú cesty iné. Premysli si to:</li>
+    </ul>
+    <table class="cheat">
+      <tr><th>Som v…</th><th>Na <code>index.html</code></th><th>Na <code>04_tema/rohace.html</code></th><th>Na <code>05_tema/nova.html</code></th></tr>
+      <tr><td><code>index.html</code> (koreň)</td><td>—</td><td><code>04_tema/rohace.html</code></td><td><code>05_tema/nova.html</code></td></tr>
+      <tr><td><code>04_tema/</code></td><td><code>../index.html</code></td><td>—</td><td><code>../05_tema/nova.html</code></td></tr>
+      <tr><td><code>05_tema/</code></td><td><code>../index.html</code></td><td><code>../04_tema/rohace.html</code></td><td>—</td></tr>
+    </table>
+    <ul>
+      <li>Overenie: na každej stránke fungujú <strong>všetky</strong> odkazy v menu.</li>
+    </ul>
+    <div class="otazka">💬 Prečo nemôžeš mať na všetkých troch stránkach presne ten istý kód menu — presne rovnaké <code>href</code> hodnoty?</div>
+    <details><summary>Odpoveď</summary><p>Pretože stránky sú v rôznych priečinkoch — relatívna cesta závisí od toho, <strong>kde</strong> je súbor, v ktorom píšeš.</p></details>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<section id="u8">
+  <div class="uloha">
+    <h2>Úloha 8 — Obsah stránky (kotvy)</h2>
+    <p>Dlhšie stránky majú na vrchu „obsah" — klikneš a skočíš na správnu časť. Na to slúžia <strong>kotvy</strong>.</p>
+    <ol>
+      <li>Vyber si dlhšiu stránku (<code>rohace.html</code> alebo novú) a pridaj nadpisom <code>&lt;h2&gt;</code> atribút <code>id</code>:</li>
+    </ol>
+<pre><span class="tg">&lt;h2</span> <span class="at">id</span>=<span class="st">"galeria"</span><span class="tg">&gt;</span>Galéria<span class="tg">&lt;/h2&gt;</span>
+<span class="tg">&lt;h2</span> <span class="at">id</span>=<span class="st">"kontakt"</span><span class="tg">&gt;</span>Kontakt<span class="tg">&lt;/h2&gt;</span></pre>
+    <ol start="2">
+      <li>Pod hlavný nadpis <code>&lt;h1&gt;</code> pridaj „obsah" — zoznam odkazov na tieto sekcie:</li>
+    </ol>
+<pre><span class="tg">&lt;h2&gt;</span>Obsah<span class="tg">&lt;/h2&gt;</span>
+<span class="tg">&lt;ul&gt;</span>
+  <span class="tg">&lt;li&gt;&lt;a</span> <span class="at">href</span>=<span class="st">"#galeria"</span><span class="tg">&gt;</span>Galéria<span class="tg">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="tg">&lt;li&gt;&lt;a</span> <span class="at">href</span>=<span class="st">"#kontakt"</span><span class="tg">&gt;</span>Kontakt<span class="tg">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="tg">&lt;/ul&gt;</span></pre>
+    <ol start="3">
+      <li>Klikni na odkaz v obsahu — stránka <strong>skočí</strong> na správnu sekciu.</li>
+      <li>Pridaj aspoň <strong>3 sekcie</strong> s <code>id</code> a 3 odkazy v obsahu.</li>
+    </ol>
+    <div class="info">💡 <code>#</code> v <code>href</code> = odkaz na miesto <strong>v tej istej stránke</strong>. Cieľ musí mať rovnaké <code>id</code> (bez <code>#</code>).</div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<section id="odovzdanie2">
+  <div class="uloha publish">
+    <h2>Záverečné odovzdanie</h2>
+    <ul>
+      <li>Nahraj <strong>všetky zmeny</strong> do repozitára (aj nový priečinok <code>05_tema</code> s obrázkami).</li>
+      <li>Na živom linku <strong>preklikaj celé menu</strong> na každej stránke — funguje všade?</li>
+      <li>Na dlhšej stránke vyskúšaj <strong>kotvy</strong> — kliknutie v obsahu skočí na sekciu?</li>
+    </ul>
+    <div class="warn">Ak odkaz v menu nefunguje len na jednej stránke, skontroluj <strong>cestu</strong> — z každého priečinka je cesta iná!</div>
+  </div>
+</section>
+
+</body>
+</html>
