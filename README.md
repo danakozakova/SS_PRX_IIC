@@ -20,4 +20,4 @@
 - vysvetlíme si dopĺňanie tabulátorom
 
 # 05 Linky
-- 
+- [05_odkazy_zadanie.html](https://danakozakova.github.io/SS_PRX_IIC/05_odkazy_zadanie.html)
