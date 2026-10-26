@@ -15,10 +15,6 @@
 -  [04_obrazky_cvicenia_zadanie.html](https://danakozakova.github.io/SS_PRX_IIC/04_obrazky_cvicenia_zadanie.html)
 -  [obrazky](obrazky)
 
-19.10.2026
-- dokončime obrázky, nahrávanie na github, úprava index.html
-- vysvetlíme si dopĺňanie tabulátorom
-
 # 05 Linky
 - [05_odkazy_zadanie.html](https://danakozakova.github.io/SS_PRX_IIC/05_odkazy_zadanie.html)
 - [test](https://forms.cloud.microsoft/e/uPMtFuNDsM)
