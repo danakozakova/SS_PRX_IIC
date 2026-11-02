@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRX | 06 — Úlohy pre žiakov</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: #1e293b; font-size: 20px; line-height: 1.7; }
+
+nav { position: sticky; top: 0; background: #1e1b4b; color: white; display: flex; gap: .25rem; padding: .6rem 2rem; flex-wrap: wrap; z-index: 100; align-items: center; }
+nav strong { color: white; margin-right: .5rem; }
+nav a { color: #a5b4fc; text-decoration: none; font-size: .85rem; padding: .3rem .9rem; border-radius: .25rem; }
+nav a:hover { background: #312e81; color: white; }
+
+section { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 2.5rem; border-bottom: 1px solid #e2e8f0; }
+section:last-child { border-bottom: none; }
+
+h1 { font-size: 2.2rem; color: #1e1b4b; margin-bottom: .5rem; }
+h2 { font-size: 1.8rem; color: #312e81; margin-bottom: 1.2rem; padding-bottom: .5rem; border-bottom: 2px solid #e0e7ff; }
+h3 { font-size: 1.25rem; color: #4338ca; margin: 1.75rem 0 .6rem; }
+p  { margin-bottom: .85rem; }
+ul, ol { margin: .5rem 0 .85rem 1.5rem; }
+li { margin-bottom: .5rem; }
+
+code { background: #e0e7ff; color: #3730a3; padding: .15rem .5rem; border-radius: .3rem; font-size: .88em; font-family: 'Cascadia Code', 'Fira Code', monospace; }
+pre  { background: #0f172a; color: #7dd3fc; padding: 1.4rem 1.8rem; border-radius: .75rem; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: .95rem; overflow-x: auto; margin: 1rem 0 1.5rem; line-height: 1.7; }
+pre .tg { color: #60a5fa; }
+pre .at { color: #fbbf24; }
+pre .st { color: #86efac; }
+pre .kw { color: #c084fc; }
+pre .cm { color: #64748b; }
+
+.info    { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.tip     { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.warn    { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.pozn    { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.otazka  { background: #fef9c3; border-left: 4px solid #eab308; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; font-style: italic; }
+
+.uloha   { border-left: 4px solid #3b82f6; background: #eff6ff; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin-bottom: 1.5rem; }
+.uloha h2 { margin: 0 0 .5rem; color: #1e40af; font-size: 1.1rem; border: none; padding: 0; }
+.uloha p, .uloha li { margin: .25rem 0; color: #374151; }
+.projekt  { border-left: 4px solid #22c55e; background: #f0fdf4; }
+.projekt h2 { color: #15803d; }
+.publish  { border-left: 4px solid #0ea5e9; background: #ecfeff; }
+.publish h2 { color: #0369a1; }
+.bonus    { border-left: 4px solid #a855f7; background: #fdf4ff; }
+.bonus h2 { color: #7e22ce; }
+.oddelovac { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+
+.subor { display: inline-block; background: #1e1b4b; color: #a5b4fc; font-family: 'Cascadia Code', monospace; font-size: .85rem; padding: .3rem .8rem; border-radius: .4rem; margin: .3rem 0; }
+
+.cheat { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+.cheat th { background: #312e81; color: white; padding: .7rem 1rem; text-align: left; }
+.cheat td { padding: .55rem 1rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+.cheat tr:nth-child(even) td { background: #f8fafc; }
+.cheat code { background: #ddd6fe; color: #3730a3; }
+
+.anat { background: #1e293b; border-radius: .75rem; padding: 1.5rem 2rem; margin: 1rem 0; font-family: 'Cascadia Code','Fira Code',monospace; font-size: 1.05rem; line-height: 2.2; color: #e2e8f0; overflow-x: auto; }
+.anat .tg { color: #60a5fa; } .anat .at { color: #fbbf24; } .anat .st { color: #86efac; } .anat .tx { color: #e2e8f0; } .anat .cm { color: #64748b; } .anat .bad { color: #fca5a5; }
+.anat small { display: block; font-size: .8rem; color: #94a3b8; line-height: 1.5; font-family: 'Segoe UI', sans-serif; margin-top: .6rem; }
+
+details { background: #f1f5f9; border-radius: .5rem; padding: .6rem 1rem; margin: .5rem 0 1rem; }
+details summary { cursor: pointer; color: #4338ca; font-weight: 600; }
+details p, details li { margin: .4rem 0; }
+
+.krok-list { list-style: none; margin: .5rem 0; padding: 0; }
+.krok-list li { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
+.krok-num { background: #4338ca; color: white; font-weight: bold; min-width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; margin-top: .1rem; }
+
+.hotovo { background: #ecfdf5; border: 1px dashed #10b981; border-radius: .6rem; padding: .8rem 1.2rem 0.4rem; margin: 1rem 0 .3rem; }
+.hotovo strong { color: #047857; display: block; margin-bottom: .3rem; }
+.hotovo ul { margin-top: .3rem; }
+
+/* Statický náhľad "cieľa" — ukážka kariet vedľa seba (štýl patrí hárku, nie žiackemu kódu) */
+.nahlad { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+.nahlad .karta { flex: 1 1 180px; background: #fff; border: 2px solid #c7d2fe; border-radius: .6rem; padding: 1rem; }
+.nahlad .karta h4 { color: #312e81; margin-bottom: .4rem; font-size: 1.05rem; }
+.nahlad .karta p { font-size: .85rem; color: #64748b; margin: 0; }
+.nahlad-popis { font-size: .85rem; color: #64748b; text-align: center; margin-top: -.3rem; }
+
+.reveal { border-left: 4px solid #f59e0b; background: #fffbeb; padding: 1rem 1.5rem 1.2rem; border-radius: 0 .6rem .6rem 0; margin-bottom: 1.5rem; }
+.reveal h2 { color: #b45309; border: none; padding: 0; margin: 0 0 .5rem; font-size: 1.25rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <strong>PRX · II.C · Hodina 06</strong>
+  <a href="#rozcvicka">Rozcvička</a>
+  <a href="#u1">1 · Nová stránka</a>
+  <a href="#u2">2 · Karty do divov</a>
+  <a href="#dovod">★ Prečo divy?</a>
+  <a href="#u3">3 · Vnorené zoznamy</a>
+  <a href="#u4">4 · Slovník (DL)</a>
+  <a href="#u5">5 · SPAN</a>
+  <a href="#bonus">Bonus (ABBR)</a>
+  <a href="#odovzdanie">Odovzdanie</a>
+</nav>
+
+<section>
+  <h1>Hodina 06 — Bloky, Div a Zoznamy</h1>
+  <p>Dnes postavíme <strong>novú stránku „Výlety po Orave"</strong> a naučíme sa ju rozdeliť na kúsky, s ktorými sa dá hýbať ako s celkom. Zistíš aj to, prečo sa vôbec oplatí robiť <code>&lt;div&gt;</code>.</p>
+  <div class="info">
+    📁 Dnes pracujeme v <strong>novom priečinku</strong> <span class="subor">06_tema</span> v repozitári <code>SS_PRX_IIC</code>. Súbory z minula nemažeš — iba pridávaš nový.
+  </div>
+
+  <p style="margin-top:1.2rem;">Takto bude stránka vyzerať na konci — niekoľko <strong>kariet (divov) vedľa seba</strong>:</p>
+  <div class="nahlad">
+    <div class="karta"><h4>🏔️ Roháče</h4><p>Plesá, hrebeňovka, celodenná túra.</p></div>
+    <div class="karta"><h4>🏰 Oravský hrad</h4><p>Hrad na skale nad Oravou.</p></div>
+    <div class="karta"><h4>🌊 Oravská priehrada</h4><p>Vodné dielo a Slanický ostrov.</p></div>
+  </div>
+  <p class="nahlad-popis">↑ cieľ hodiny · každá karta = jeden <code>&lt;div&gt;</code></p>
+</section>
+
+<!-- ROZCVIČKA -->
+<section id="rozcvicka">
+  <div class="uloha">
+    <h2>🔎 Rozcvička — Záhada rozbitého riadka</h2>
+    <p>Skôr než začneme stavať, pozrime sa, ako sa tagy správajú v priestore.</p>
+    <ol>
+      <li>Vo VS Code vytvor <strong>dočasný</strong> súbor <code>test.html</code> (kostra cez <code>!</code> a Tab).</li>
+      <li>Do <code>&lt;body&gt;</code> napíš tento riadok (presne za sebou):
+        <div class="anat"><span class="tg">&lt;a</span> <span class="at">href</span>=<span class="st">"#"</span><span class="tg">&gt;</span><span class="tx">Klikni sem</span><span class="tg">&lt;/a&gt;</span> <span class="tg">&lt;b&gt;</span><span class="tx">Tučný text</span><span class="tg">&lt;/b&gt;</span></div>
+      </li>
+      <li>Pod to napíš druhý riadok:
+        <div class="anat"><span class="tg">&lt;h1&gt;</span><span class="tx">Nadpis</span><span class="tg">&lt;/h1&gt;</span> <span class="tg">&lt;p&gt;</span><span class="tx">Odsek</span><span class="tg">&lt;/p&gt;</span></div>
+      </li>
+      <li>Ulož, otvor v prehliadači a zapni <strong>DevTools (F12)</strong> — záložka <strong>Elements / Prvky</strong>.</li>
+      <li>Prechádzaj myšou po tagoch v kóde a sleduj modrý obdĺžnik — koľko miesta ktorý tag zaberá.</li>
+    </ol>
+    <div class="otazka">💬 Prečo zostali <code>&lt;a&gt;</code> a <code>&lt;b&gt;</code> vedľa seba v jednom riadku, kým <code>&lt;h1&gt;</code> „vykopol" <code>&lt;p&gt;</code> pod seba?</div>
+    <details>
+      <summary>Nápoveda / odpoveď</summary>
+      <table class="cheat">
+        <tr><th>Blokové (block)</th><th>Riadkové (inline)</th></tr>
+        <tr>
+          <td>Zaberú <strong>celú šírku</strong> riadka → ďalší prvok odskočí pod seba.<br><code>&lt;h1&gt;</code>…<code>&lt;h6&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;nav&gt;</code></td>
+          <td>Zaberú len <strong>toľko, koľko treba</strong> → ukladajú sa vedľa seba.<br><code>&lt;a&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;img&gt;</code></td>
+        </tr>
+      </table>
+      <p><strong>Odpoveď:</strong> <code>&lt;h1&gt;</code> aj <code>&lt;p&gt;</code> sú blokové — každý si berie celý riadok. <code>&lt;a&gt;</code> a <code>&lt;b&gt;</code> sú riadkové — zmestia sa vedľa seba.</p>
+    </details>
+    <div class="warn">Súbor <code>test.html</code> bol len na skúšku — po rozcvičke ho môžeš zmazať. Ďalej už pracujeme na ostrej stránke.</div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 1 -->
+<section id="u1">
+  <div class="uloha projekt">
+    <h2>Úloha 1 — Nová stránka „Výlety po Orave"</h2>
+    <p>Vytvor novú podstránku, na ktorej budeme dnes pracovať.</p>
+    <ul class="krok-list">
+      <li><span class="krok-num">1</span><span>V repozitári <code>SS_PRX_IIC</code> vytvor nový priečinok <span class="subor">06_tema</span>.</span></li>
+      <li><span class="krok-num">2</span><span>V ňom vytvor súbor <span class="subor">vylety.html</span> a napíš základnú kostru (<code>!</code> a Tab).</span></li>
+      <li><span class="krok-num">3</span><span>Do <code>&lt;title&gt;</code> napíš „Výlety po Orave", do <code>&lt;body&gt;</code> hlavný nadpis <code>&lt;h1&gt;</code>Výlety po Orave<code>&lt;/h1&gt;</code>.</span></li>
+      <li><span class="krok-num">4</span><span>Pod nadpis pridaj jeden krátky odsek <code>&lt;p&gt;</code>, o čom stránka je.</span></li>
+    </ul>
+    <div class="hotovo">
+      <strong>✅ Hotovo, keď…</strong>
+      <ul>
+        <li>v priečinku <code>06_tema/</code> existuje súbor <code>vylety.html</code>,</li>
+        <li>po otvorení v prehliadači vidíš nadpis aj odsek.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 2 -->
+<section id="u2">
+  <div class="uloha">
+    <h2>Úloha 2 — Tri karty, každá do svojho divu</h2>
+    <p>Pridaj na stránku <strong>tri tipy na výlet</strong>. Každý tip zabalíme do vlastnej „krabice" — tagu <code>&lt;div&gt;</code>. Krabica je neviditeľná, ale o chvíľu zistíš, načo je dobrá.</p>
+
+    <p>Najprv jeden spoločný <strong>obaľovací div</strong> na všetky karty (daj mu <code>id</code>), a dnu tri karty (každej daj rovnakú <code>class</code>):</p>
+    <div class="anat"><span class="tg">&lt;div</span> <span class="at">id</span>=<span class="st">"karty"</span><span class="tg">&gt;</span>
+
+  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="st">"karta"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;h2&gt;</span><span class="tx">Roháče</span><span class="tg">&lt;/h2&gt;</span>
+    <span class="tg">&lt;img</span> <span class="at">src</span>=<span class="st">"../04_tema/obrazky/rohace-plesa.jpg"</span> <span class="at">alt</span>=<span class="st">"Roháčske plesá"</span> <span class="at">width</span>=<span class="st">"250"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;p&gt;</span><span class="tx">Krátky popis výletu…</span><span class="tg">&lt;/p&gt;</span>
+  <span class="tg">&lt;/div&gt;</span>
+
+  <span class="cm">&lt;!-- ešte dve také karty: class="karta" --&gt;</span>
+
+<span class="tg">&lt;/div&gt;</span></div>
+
+    <ul>
+      <li>Urob <strong>tri</strong> karty (napr. Roháče, Oravský hrad, Oravská priehrada — alebo tvoje vlastné miesta).</li>
+      <li>Každá karta má: nadpis <code>&lt;h2&gt;</code>, obrázok <code>&lt;img&gt;</code> a odsek <code>&lt;p&gt;</code>.</li>
+      <li>Obaľovací div má <code>id="karty"</code> (je len jeden → <strong>id</strong>). Každá karta má <code>class="karta"</code> (je ich viac → <strong>class</strong>).</li>
+    </ul>
+
+    <div class="tip">💡 <strong>Obrázok</strong> nemusíš sťahovať nový — môžeš použiť ten z témy 04. Keďže si o priečinok inde, cesta ide „o úroveň vyššie": <code>../04_tema/obrazky/…</code>. (Alebo si do <code>06_tema/obrazky/</code> daj vlastné.)</div>
+
+    <div class="pozn">⚠️ Každý <code>&lt;div&gt;</code> musíš aj <strong>zavrieť</strong> značkou <code>&lt;/div&gt;</code> na správnom mieste. Pomôž si klávesom <code>Shift</code>+<code>Alt</code>+<code>F</code> vo VS Code — pekne odsadí kód a hneď uvidíš, čo kam patrí.</div>
+
+    <div class="hotovo">
+      <strong>✅ Hotovo, keď…</strong>
+      <ul>
+        <li>na stránke sú tri tipy pod sebou, každý s nadpisom, obrázkom a textom,</li>
+        <li>všetky tri karty sú vnútri jedného <code>&lt;div id="karty"&gt;</code>,</li>
+        <li>kód je odsadený a každý <code>&lt;div&gt;</code> má svoj <code>&lt;/div&gt;</code>.</li>
+      </ul>
+    </div>
+    <div class="warn">Zatiaľ sú karty nudne pod sebou a div akoby „nič nerobil". To je v poriadku — v ďalšom kroku zistíš, prečo sme ich zabaľovali.</div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- DÔVOD / REVEAL -->
+<section id="dovod">
+  <div class="reveal">
+    <h2>★ Prečo vlastne robíme divy? (kúzlo cez F12)</h2>
+    <p>Teraz uvidíš, načo bola tá námaha. Nič nebudeš prepisovať v súbore — len nazrieš do budúcnosti pomocou <strong>DevTools</strong>.</p>
+    <ul class="krok-list">
+      <li><span class="krok-num">1</span><span>Otvor <code>vylety.html</code> v prehliadači a stlač <strong>F12</strong>. Prejdi na záložku <strong>Elements / Prvky</strong>.</span></li>
+      <li><span class="krok-num">2</span><span>V kóde nájdi svoj <code>&lt;div id="karty"&gt;</code> a <strong>klikni</strong> naň (riadok sa podsvieti, na stránke sa označí celá skupina kariet).</span></li>
+      <li><span class="krok-num">3</span><span>Vpravo je panel <strong>Styles / Štýly</strong> a úplne hore prázdne <code>element.style { }</code>. Klikni dovnútra zložených zátvoriek.</span></li>
+      <li><span class="krok-num">4</span><span>Napíš <code>display</code> → Enter, potom hodnotu <code>flex</code> → Enter.</span></li>
+    </ul>
+    <div class="anat"><span class="at">element.style</span> {
+  <span class="kw">display</span>: <span class="st">flex</span>;
+}</div>
+    <p style="font-size:1.1rem;"><strong>💥 Čo sa stalo?</strong> Tvoje tri karty skočili <strong>vedľa seba</strong> do jedného radu — presne ako na náhľade na začiatku hodiny.</p>
+    <p>Skús pridať ešte <code>gap: 20px</code> (medzera medzi kartami) a <code>padding: 10px</code> — rad kariet sa pekne usadí.</p>
+
+    <div class="info">
+      <strong>A tu je ten dôvod:</strong> <code>&lt;div&gt;</code> je <strong>úchytka na celú skupinu</strong>. Keď máš obsah zabalený v jednom dive, vieš s ním hýbať ako s <em>jedným celkom</em> — dať ho vedľa seba, orámovať, zafarbiť, posunúť. Bez divu by si musel chytať každý nadpis a odsek zvlášť. <strong>Div je lešenie, na ktoré budúcu hodinu zavesíme CSS.</strong>
+    </div>
+
+    <div class="warn">Teraz stlač <strong>F5</strong> (obnoviť). Karty sa vrátia pod seba — úprava cez F12 bola len <em>dočasná ukážka</em> a v tvojom súbore <code>vylety.html</code> sa <strong>nič nezmenilo</strong>. Natrvalo si to zapíšeme až s CSS.</div>
+
+    <details>
+      <summary>💬 Otázka na zamyslenie</summary>
+      <p>Čo by sa stalo, keby si tri karty <strong>nezabalil</strong> do spoločného <code>&lt;div id="karty"&gt;</code> a skúsil by si <code>display: flex</code> dať niekam inam? Prečo potrebujeme ten jeden obaľovací div navyše?</p>
+      <p><em>(Flex funguje vždy na „rodičovi" — rozloží to, čo je priamo v ňom. Bez spoločného rodiča nemáš čo chytiť.)</em></p>
+    </details>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 3 -->
+<section id="u3">
+  <div class="uloha">
+    <h2>Úloha 3 — Vnorený zoznam (čo si zbaliť)</h2>
+    <p>Do jednej z kariet pridaj sekciu <strong>„Čo si zbaliť"</strong> a v nej <strong>vnorený zoznam</strong> — zoznam vnútri zoznamu, rozdelený do kategórií.</p>
+    <div class="anat"><span class="tg">&lt;ul&gt;</span>
+  <span class="tg">&lt;li&gt;</span><span class="tx">Oblečenie</span>
+    <span class="tg">&lt;ul&gt;</span>
+      <span class="tg">&lt;li&gt;</span><span class="tx">Bunda</span><span class="tg">&lt;/li&gt;</span>
+      <span class="tg">&lt;li&gt;</span><span class="tx">Čiapka</span><span class="tg">&lt;/li&gt;</span>
+    <span class="tg">&lt;/ul&gt;</span>
+  <span class="tg">&lt;/li&gt;</span>
+  <span class="tg">&lt;li&gt;</span><span class="tx">Jedlo</span>
+    <span class="tg">&lt;ul&gt;</span>
+      <span class="tg">&lt;li&gt;</span><span class="tx">Horalka</span><span class="tg">&lt;/li&gt;</span>
+    <span class="tg">&lt;/ul&gt;</span>
+  <span class="tg">&lt;/li&gt;</span>
+<span class="tg">&lt;/ul&gt;</span></div>
+    <div class="warn">⚠️ Všimni si: vnútorný <code>&lt;ul&gt;</code> je <strong>ešte PRED</strong> zatváracím <code>&lt;/li&gt;</code> svojej položky. Zoznam je <em>vnútri</em> položky, nie voľne hodený medzi odrážkami.</div>
+    <div class="hotovo">
+      <strong>✅ Hotovo, keď…</strong>
+      <ul>
+        <li>máš aspoň 2 kategórie a v každej aspoň 1 pododrážku,</li>
+        <li>podzoznam je odsadený dnu pod svojou položkou.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 4 -->
+<section id="u4">
+  <div class="uloha">
+    <h2>Úloha 4 — Údaje o výlete ako definičný zoznam (DL)</h2>
+    <p>Do jednej karty pridaj krátke <strong>„údaje o výlete"</strong> pomocou definičného zoznamu <code>&lt;dl&gt;</code>. Hodí sa na dvojice <em>pojem → hodnota</em> (alebo otázka → odpoveď v FAQ).</p>
+    <div class="anat"><span class="tg">&lt;dl&gt;</span>
+  <span class="tg">&lt;dt&gt;</span><span class="tx">Náročnosť</span><span class="tg">&lt;/dt&gt;</span>   <span class="cm">&lt;!-- dt = pojem --&gt;</span>
+  <span class="tg">&lt;dd&gt;</span><span class="tx">stredná</span><span class="tg">&lt;/dd&gt;</span>     <span class="cm">&lt;!-- dd = hodnota --&gt;</span>
+  <span class="tg">&lt;dt&gt;</span><span class="tx">Čas túry</span><span class="tg">&lt;/dt&gt;</span>
+  <span class="tg">&lt;dd&gt;</span><span class="tx">približne 5 hodín</span><span class="tg">&lt;/dd&gt;</span>
+<span class="tg">&lt;/dl&gt;</span></div>
+    <ul>
+      <li>Daj aspoň <strong>3 dvojice</strong> <code>&lt;dt&gt;</code> + <code>&lt;dd&gt;</code> (napr. náročnosť, čas, nadmorská výška, čo vidieť).</li>
+    </ul>
+    <div class="hotovo">
+      <strong>✅ Hotovo, keď…</strong>
+      <ul>
+        <li>v karte je zoznam s aspoň 3 pojmami a ich hodnotami,</li>
+        <li>každý <code>&lt;dt&gt;</code> má svoj <code>&lt;dd&gt;</code>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 5 -->
+<section id="u5">
+  <div class="uloha">
+    <h2>Úloha 5 — Zvýraznenie slova (SPAN)</h2>
+    <p>Nájdi v niektorom odseku dôležité slovo (napr. <em>náročná</em>, <em>zdarma</em>, názov miesta) a obaľ ho riadkovým tagom <code>&lt;span&gt;</code> s menovkou:</p>
+    <div class="anat"><span class="tg">&lt;p&gt;</span><span class="tx">Túra je </span><span class="tg">&lt;span</span> <span class="at">class</span>=<span class="st">"dolezite"</span><span class="tg">&gt;</span><span class="tx">náročná</span><span class="tg">&lt;/span&gt;</span><span class="tx">, zober si dobré topánky.</span><span class="tg">&lt;/p&gt;</span></div>
+    <p>Rovnako ako <code>&lt;div&gt;</code> ani <code>&lt;span&gt;</code> sám o sebe vizuálne nič neurobí — je to <strong>riadková</strong> krabička na kúsok textu, ktorý budúcu hodinu v CSS zafarbíme.</p>
+    <details>
+      <summary>Over si to cez F12</summary>
+      <p>Klikni na svoj <code>&lt;span&gt;</code> v DevTools a do <code>element.style</code> napíš <code>color: red</code>. Zvýrazní sa <strong>len to jedno slovo</strong> a text okolo ostane na mieste (span neskáče na nový riadok — je riadkový). Po <code>F5</code> sa to vráti.</p>
+    </details>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- BONUS -->
+<section id="bonus">
+  <div class="uloha bonus">
+    <h2>⭐ Bonus — Skratky (ABBR)</h2>
+    <p>Nájdi v texte skratku (napr. <strong>NP</strong>, <strong>TANAP</strong>, <strong>HZS</strong>) a obaľ ju tagom <code>&lt;abbr&gt;</code> s atribútom <code>title</code>:</p>
+    <div class="anat"><span class="tg">&lt;abbr</span> <span class="at">title</span>=<span class="st">"Horská záchranná služba"</span><span class="tg">&gt;</span><span class="tx">HZS</span><span class="tg">&lt;/abbr&gt;</span></div>
+    <div class="otazka">💬 Podrž myš nad skratkou na stránke. Čo sa stane? A je <code>&lt;abbr&gt;</code> blokový alebo riadkový prvok?</div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ODOVZDANIE -->
+<section id="odovzdanie">
+  <div class="uloha publish">
+    <h2>Odovzdanie</h2>
+    <ul class="krok-list">
+      <li><span class="krok-num">1</span><span>V <code>index.html</code> (rozcestník v koreni) pridaj odkaz na novú stránku <code>06_tema/vylety.html</code>.</span></li>
+      <li><span class="krok-num">2</span><span>Ulož všetky zmeny a nahraj priečinok <code>06_tema</code> do repozitára <code>SS_PRX_IIC</code> (Commit &amp; Push).</span></li>
+      <li><span class="krok-num">3</span><span>Otvor <strong>živý link</strong> a skontroluj: zobrazí sa stránka, obrázky, funguje odkaz z úvodu aj späť?</span></li>
+    </ul>
+    <div class="warn">Nezobrazuje sa obrázok alebo odkaz? Najčastejšie je to <strong>preklep v ceste</strong> alebo veľké/malé písmená v názve súboru — na GitHube na tom záleží.</div>
+    <div class="tip">💡 Stránka je zatiaľ „holá" — bez farieb a rámikov. To je zámer: máš hotové <strong>lešenie z divov</strong>. Budúcu hodinu na CSS to flex-kúzlo z F12 zapíšeme natrvalo a karty ostanú vedľa seba už navždy.</div>
+  </div>
+</section>
+
+</body>
+</html>
