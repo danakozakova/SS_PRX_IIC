@@ -18,3 +18,6 @@
 # 05 Linky
 - [05_odkazy_zadanie.html](https://danakozakova.github.io/SS_PRX_IIC/05_odkazy_zadanie.html)
 - [test](https://forms.cloud.microsoft/e/uPMtFuNDsM)
+
+# 05 Blokové a inline prvky
+- [06_div_zadanie.html](https://danakozakova.github.io/SS_PRX_IIC/06_div_zadanie.html)
