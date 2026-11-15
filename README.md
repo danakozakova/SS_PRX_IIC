@@ -19,5 +19,8 @@
 - [05_odkazy_zadanie.html](https://danakozakova.github.io/SS_PRX_IIC/05_odkazy_zadanie.html)
 - [test](https://forms.cloud.microsoft/e/uPMtFuNDsM)
 
-# 05 Blokové a inline prvky
+# 06 Blokové a inline prvky
 - [06_div_zadanie.html](https://danakozakova.github.io/SS_PRX_IIC/06_div_zadanie.html)
+
+# CSS
+- [07_css_zadanie.html](https://danakozakova.github.io/SS_PRX_IIC/07_css_zadanie.html)
