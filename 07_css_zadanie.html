@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRX | 07 — Úvod do CSS (Úlohy pre žiakov)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: #1e293b; font-size: 20px; line-height: 1.7; }
+
+nav { position: sticky; top: 0; background: #1e1b4b; color: white; display: flex; gap: .25rem; padding: .6rem 2rem; flex-wrap: wrap; z-index: 100; align-items: center; }
+nav strong { color: white; margin-right: .5rem; }
+nav a { color: #a5b4fc; text-decoration: none; font-size: .85rem; padding: .3rem .9rem; border-radius: .25rem; }
+nav a:hover { background: #312e81; color: white; }
+
+section { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 2.5rem; border-bottom: 1px solid #e2e8f0; }
+section:last-child { border-bottom: none; }
+
+h1 { font-size: 2.2rem; color: #1e1b4b; margin-bottom: .5rem; }
+h2 { font-size: 1.8rem; color: #312e81; margin-bottom: 1.2rem; padding-bottom: .5rem; border-bottom: 2px solid #e0e7ff; }
+h3 { font-size: 1.25rem; color: #4338ca; margin: 1.75rem 0 .6rem; }
+p  { margin-bottom: .85rem; }
+ul, ol { margin: .5rem 0 .85rem 1.5rem; }
+li { margin-bottom: .5rem; }
+
+code { background: #e0e7ff; color: #3730a3; padding: .15rem .5rem; border-radius: .3rem; font-size: .88em; font-family: 'Cascadia Code', 'Fira Code', monospace; }
+
+.info    { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.tip     { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.warn    { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.pozn    { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.otazka  { background: #fef9c3; border-left: 4px solid #eab308; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; font-style: italic; }
+
+.uloha   { border-left: 4px solid #3b82f6; background: #eff6ff; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin-bottom: 1.5rem; }
+.uloha h2 { margin: 0 0 .5rem; color: #1e40af; font-size: 1.1rem; border: none; padding: 0; }
+.uloha p, .uloha li { margin: .25rem 0; color: #374151; }
+.projekt  { border-left: 4px solid #22c55e; background: #f0fdf4; }
+.projekt h2 { color: #15803d; }
+.publish  { border-left: 4px solid #0ea5e9; background: #ecfeff; }
+.publish h2 { color: #0369a1; }
+.bonus    { border-left: 4px solid #a855f7; background: #fdf4ff; }
+.bonus h2 { color: #7e22ce; }
+.oddelovac { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+
+.subor { display: inline-block; background: #1e1b4b; color: #a5b4fc; font-family: 'Cascadia Code', monospace; font-size: .85rem; padding: .3rem .8rem; border-radius: .4rem; margin: .3rem 0; }
+
+.cheat { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+.cheat th { background: #312e81; color: white; padding: .7rem 1rem; text-align: left; }
+.cheat td { padding: .55rem 1rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+.cheat tr:nth-child(even) td { background: #f8fafc; }
+.cheat code { background: #ddd6fe; color: #3730a3; }
+
+.anat { background: #1e293b; border-radius: .75rem; padding: 1.5rem 2rem; margin: 1rem 0; font-family: 'Cascadia Code','Fira Code',monospace; font-size: 1.05rem; line-height: 2.2; color: #e2e8f0; overflow-x: auto; }
+.anat .tg { color: #60a5fa; } .anat .at { color: #fbbf24; } .anat .st { color: #86efac; } .anat .tx { color: #e2e8f0; } .anat .kw { color: #c084fc; } .anat .cm { color: #64748b; } .anat .bad { color: #fca5a5; } .anat .sel { color: #fbbf24; }
+.anat small { display: block; font-size: .8rem; color: #94a3b8; line-height: 1.5; font-family: 'Segoe UI', sans-serif; margin-top: .6rem; }
+
+details { background: #f1f5f9; border-radius: .5rem; padding: .6rem 1rem; margin: .5rem 0 1rem; }
+details summary { cursor: pointer; color: #4338ca; font-weight: 600; }
+details p, details li { margin: .4rem 0; }
+
+.krok-list { list-style: none; margin: .5rem 0; padding: 0; }
+.krok-list li { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
+.krok-num { background: #4338ca; color: white; font-weight: bold; min-width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; margin-top: .1rem; }
+
+.hotovo { background: #ecfdf5; border: 1px dashed #10b981; border-radius: .6rem; padding: .8rem 1.2rem 0.4rem; margin: 1rem 0 .3rem; }
+.hotovo strong { color: #047857; display: block; margin-bottom: .3rem; }
+.hotovo ul { margin-top: .3rem; }
+
+/* Statické náhľady "pred/po" — štýl patrí hárku, nie žiackemu kódu */
+.rad-pod { margin: 1rem 0; }
+.rad-pod .karta { border: 2px dashed #94a3b8; background: #fff; padding: .7rem 1rem; margin-bottom: .6rem; border-radius: .4rem; }
+.rad-pod .karta strong { color: #334155; }
+.rad-vedla { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+.rad-vedla .karta { flex: 1 1 180px; background: #eef2ff; border: 2px solid #6366f1; border-radius: .6rem; padding: 1rem; }
+.rad-vedla .karta h4 { color: #312e81; margin-bottom: .4rem; font-size: 1.05rem; }
+.rad-vedla .karta p { font-size: .85rem; color: #475569; margin: 0; }
+.nahlad-popis { font-size: .85rem; color: #64748b; text-align: center; margin-top: -.3rem; }
+
+.reveal { border-left: 4px solid #f59e0b; background: #fffbeb; padding: 1rem 1.5rem 1.2rem; border-radius: 0 .6rem .6rem 0; margin-bottom: 1.5rem; }
+.reveal h2 { color: #b45309; border: none; padding: 0; margin: 0 0 .5rem; font-size: 1.25rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <strong>PRX · II.C · Hodina 07</strong>
+  <a href="#uvod">Úvod</a>
+  <a href="#u1">1 · Väčšia stránka</a>
+  <a href="#u2">2 · Prvé farbičky</a>
+  <a href="#neporiadok">★ Neporiadok</a>
+  <a href="#u3">3 · Upratať hore</a>
+  <a href="#u4">4 · Flex natrvalo</a>
+  <a href="#odovzdanie">Odovzdanie</a>
+  <a href="#tahak">Ťahák</a>
+</nav>
+
+<section id="uvod">
+  <h1>Hodina 07 — Úvod do CSS: od neporiadku k poriadku</h1>
+  <p>Minule karty cez <strong>F12</strong> skočili vedľa seba — a po <code>F5</code> to zmizlo. Dnes stránke dáme vzhľad (farby, rámiky, rozloženie) <strong>natrvalo</strong>. Reč, ktorou sa to robí, sa volá <strong>CSS</strong>.</p>
+  <div class="info">
+    📁 Dnes pracujeme v novom priečinku <span class="subor">07_tema</span> v repozitári <code>SS_PRX_IIC</code>. Vyjdeme z hotovej stránky <code>vylety.html</code> z minula.
+  </div>
+
+  <p style="margin-top:1.2rem;">Dnešná cesta v troch krokoch:</p>
+  <div class="rad-pod">
+    <div class="karta"><strong>Teraz:</strong> karty holé, nudne pod sebou.</div>
+  </div>
+  <p class="nahlad-popis">⬇️ dáme im vzhľad — najprv chaoticky, potom s poriadkom</p>
+  <div class="rad-vedla">
+    <div class="karta"><h4>🏔️ Roháče</h4><p>Farba, rámik, vedľa seba.</p></div>
+    <div class="karta"><h4>🏰 Oravský hrad</h4><p>Všetky rovnako — jedným pravidlom.</p></div>
+    <div class="karta"><h4>🌊 Priehrada</h4><p>A zmena na jednom mieste.</p></div>
+  </div>
+  <p class="nahlad-popis">↑ cieľ hodiny · a kľúč je „napíš raz, plať pre všetky"</p>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 1 -->
+<section id="u1">
+  <div class="uloha projekt">
+    <h2>Úloha 1 — Väčšia stránka na hranie</h2>
+    <p>Aby malo zmysel štýlovať, potrebujeme stránku s viacerými kartami.</p>
+    <ul class="krok-list">
+      <li><span class="krok-num">1</span><span>V repozitári <code>SS_PRX_IIC</code> vytvor nový priečinok <span class="subor">07_tema</span>.</span></li>
+      <li><span class="krok-num">2</span><span>Skopíruj doň svoj súbor <code>vylety.html</code> z priečinka <code>06_tema</code> (Copy → Paste).</span></li>
+      <li><span class="krok-num">3</span><span>Dopíš ďalšie karty výletov, nech ich máš <strong>aspoň 6</strong> (každá = jeden <code>&lt;div class="karta"&gt;</code> s nadpisom, obrázkom a textom).</span></li>
+    </ul>
+    <div class="tip">💡 Obrázky nemusíš sťahovať nové — recykluj tie z tém 04 a 05 cez cestu <code>../04_tema/obrazky/…</code> a <code>../05_tema/obrazky/…</code>.</div>
+    <div class="hotovo">
+      <strong>✅ Hotovo, keď…</strong>
+      <ul>
+        <li>v <code>07_tema/</code> je <code>vylety.html</code> s aspoň 6 kartami,</li>
+        <li>stránka sa normálne zobrazí cez Live Server (Go Live).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 2 -->
+<section id="u2">
+  <div class="uloha">
+    <h2>Úloha 2 — Prvé farbičky priamo na prvky</h2>
+    <p>Pamätáš, ako si v F12 písal <code>display: flex</code> do <code>element.style</code> a po <code>F5</code> to zmizlo? Keď tú istú vec napíšeš <strong>priamo do HTML tagu</strong> cez atribút <code>style="…"</code>, ostane to aj po <code>F5</code>.</p>
+    <div class="anat"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="st">"karta"</span> <span class="at">style</span>=<span class="st">"background: lightyellow"</span><span class="tg">&gt;</span>
+      <small>vo vnútri <code>style="…"</code> píšeš dvojice <code>vlastnosť: hodnota</code>, oddelené bodkočiarkou</small></div>
+    <p>Poskúšaj na svojich kartách — <strong>každej daj niečo iné</strong>:</p>
+    <ul>
+      <li>2–3 kartám rôzne <code>background</code> (napr. <code>lightyellow</code>, <code>#e0f2fe</code>, <code>mistyrose</code>),</li>
+      <li>jednej <code>border: 2px solid gray</code>,</li>
+      <li>nejakému nadpisu <code>style="color: darkblue"</code>,</li>
+      <li>skús aj <code>padding: 10px</code> (vnútorný odstup od okraja).</li>
+    </ul>
+    <div class="otazka">💬 Skús zmeniť <code>display</code> obaľovača <code>&lt;div id="karty"&gt;</code> na <code>flex</code> cez <code>style="display: flex; gap: 16px"</code>. Čo sa stane po <code>F5</code> teraz?</div>
+    <div class="hotovo">
+      <strong>✅ Hotovo, keď…</strong>
+      <ul>
+        <li>aspoň 3 karty majú nejaký vlastný <code>style="…"</code>,</li>
+        <li>vzhľad ostáva aj po obnovení stránky (<code>F5</code>).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- NEPORIADOK / ZLOM -->
+<section id="neporiadok">
+  <div class="reveal">
+    <h2>★ Zastav sa a pozri, čo si narobil</h2>
+    <p>Funguje to — ale pozri sa na kód. Ten istý <code>background</code> píšeš <strong>na každej karte zvlášť</strong>. A teraz predstav si:</p>
+    <ul>
+      <li>máš 6 kariet a šéf povie „daj ich svetlomodré" → prepisuješ to na <strong>6 miestach</strong>,</li>
+      <li>pridáš 7. kartu → nesmieš zabudnúť dopísať jej ten istý štýl,</li>
+      <li>HTML je zapratané štýlmi — za <code>style="…"</code> už nevidno samotný obsah.</li>
+    </ul>
+    <div class="otazka">💬 Ako napísať vzhľad <strong>raz</strong> a nech platí pre <strong>všetky karty naraz</strong>?</div>
+    <p style="margin-top:.6rem;">Presne na to je CSS. Poďme to upratať.</p>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 3 -->
+<section id="u3">
+  <div class="uloha">
+    <h2>Úloha 3 — Upraceme štýl hore do <code>&lt;style&gt;</code></h2>
+    <p>Štýl vytiahneme z jednotlivých tagov <strong>hore do hlavičky</strong> stránky, do značky <code>&lt;style&gt;</code>. Napíšeme ho <strong>raz</strong> a povieme, <strong>čoho sa týka</strong> — to je <strong>selektor</strong>.</p>
+
+    <h3>Selektor = menovka, ktorou chytíš prvky na diaľku</h3>
+    <ul>
+      <li><code>.karta</code> &nbsp;→&nbsp; všetky prvky s <code>class="karta"</code> (bodka = trieda, <strong>viac</strong> prvkov),</li>
+      <li><code>#karty</code> &nbsp;→&nbsp; prvok s <code>id="karty"</code> (mriežka = id, <strong>jeden</strong> prvok).</li>
+    </ul>
+    <div class="tip">💡 Tie menovky <code>class="karta"</code> a <code>id="karty"</code> si pripravil už minule — teraz sa konečne hodia.</div>
+
+    <p>Do <code>&lt;head&gt;</code> (vedľa <code>&lt;title&gt;</code>) pridaj značku <code>&lt;style&gt;</code> a do nej pravidlá:</p>
+    <div class="anat"><span class="tg">&lt;style&gt;</span>
+  <span class="sel">.karta</span> <span class="tx">{</span>
+    <span class="kw">background</span>: <span class="st">lightyellow</span>;
+    <span class="kw">padding</span>: <span class="st">12px</span>;
+    <span class="kw">border</span>: <span class="st">2px solid #c7d2fe</span>;
+  <span class="tx">}</span>
+<span class="tg">&lt;/style&gt;</span>
+      <small>zápis pravidla: <code>selektor { vlastnosť: hodnota; vlastnosť: hodnota; }</code> — každá vlastnosť končí bodkočiarkou</small></div>
+
+    <ul class="krok-list">
+      <li><span class="krok-num">1</span><span>Z kariet <strong>vymaž</strong> inline <code>style="…"</code> z Úlohy 2 — vzhľad teraz riadi <code>&lt;style&gt;</code>.</span></li>
+      <li><span class="krok-num">2</span><span>Daj spoločné pravidlo pre <code>.karta</code> (pozadie, padding, rámik).</span></li>
+      <li><span class="krok-num">3</span><span>Zmeň v <code>.karta</code> farbu pozadia a ulož — sleduj, že sa zmenia <strong>všetky karty naraz</strong>.</span></li>
+    </ul>
+    <div class="info">💥 <strong>Toto je pointa CSS:</strong> jedno pravidlo na jednom mieste → platí pre všetky prvky s tou menovkou. Žiadne prepisovanie na 6 miestach.</div>
+    <div class="hotovo">
+      <strong>✅ Hotovo, keď…</strong>
+      <ul>
+        <li>v <code>&lt;head&gt;</code> je <code>&lt;style&gt;</code> s pravidlom pre <code>.karta</code>,</li>
+        <li>v tagoch kariet už nie je žiadne <code>style="…"</code>,</li>
+        <li>zmena jednej hodnoty v <code>.karta</code> sa prejaví na všetkých kartách.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 4 -->
+<section id="u4">
+  <div class="uloha">
+    <h2>Úloha 4 — Flex natrvalo + karty ako karty</h2>
+    <p>A teraz to flex-kúzlo z F12 — tentokrát <strong>navždy</strong>. Pridaj do <code>&lt;style&gt;</code> pravidlo pre obaľovač:</p>
+    <div class="anat"><span class="sel">#karty</span> <span class="tx">{</span>
+    <span class="kw">display</span>: <span class="st">flex</span>;
+    <span class="kw">gap</span>: <span class="st">16px</span>;
+    <span class="kw">flex-wrap</span>: <span class="st">wrap</span>;
+  <span class="tx">}</span></div>
+    <p>Ulož, <code>F5</code> → karty ostanú vedľa seba už <strong>navždy</strong>. Dolaď <code>.karta</code>, nech vyzerá ako ozajstná karta:</p>
+    <ul>
+      <li><code>border-radius: 10px</code> — zaoblené rohy,</li>
+      <li>väčší <code>padding</code>, prípadne iné <code>background</code>,</li>
+      <li>šírku obrázka necháme cez atribút <code>width</code> z HTML (CSS na obrázky príde neskôr).</li>
+    </ul>
+    <div class="hotovo">
+      <strong>✅ Hotovo, keď…</strong>
+      <ul>
+        <li>karty sú vedľa seba aj po <code>F5</code>,</li>
+        <li>vyzerajú ako karty (pozadie, rámik, zaoblenie, odstupy).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- BONUS -->
+<section id="bonus">
+  <div class="uloha bonus">
+    <h2>⭐ Bonus — jedna zmena, všetko sa hýbe</h2>
+    <ul>
+      <li>Pridaj do <code>#karty</code> pravidlo <code>justify-content: center</code> — kam sa posunie celý rad?</li>
+      <li>Zmeň v <code>.karta</code> jedinú hodnotu (napr. <code>border</code>) a over, že sa zmení na <strong>všetkých</strong> kartách.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ODOVZDANIE -->
+<section id="odovzdanie">
+  <div class="uloha publish">
+    <h2>Odovzdanie</h2>
+    <ul class="krok-list">
+      <li><span class="krok-num">1</span><span>V <code>index.html</code> pridaj odkaz na novú stránku <code>07_tema/vylety.html</code>.</span></li>
+      <li><span class="krok-num">2</span><span>Ulož všetko a nahraj priečinok <code>07_tema</code> do repozitára (Commit &amp; Push).</span></li>
+      <li><span class="krok-num">3</span><span>Otvor <strong>živý link</strong> a skontroluj: karty sú vedľa seba, majú vzhľad, obrázky sa zobrazujú.</span></li>
+    </ul>
+    <div class="warn">Štýl sa neprejavil? Skontroluj: je <code>&lt;style&gt;</code> v <code>&lt;head&gt;</code>? Je pred menom triedy <strong>bodka</strong> (<code>.karta</code>) a pred id <strong>mriežka</strong> (<code>#karty</code>)? Má každá vlastnosť na konci <strong>bodkočiarku</strong>?</div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ŤAHÁK -->
+<section id="tahak">
+  <h2>Ťahák — CSS na úvod</h2>
+
+  <h3>Kde môže štýl bývať</h3>
+  <table class="cheat">
+    <tr><th>Spôsob</th><th>Kam</th><th>Pre koho platí</th></tr>
+    <tr><td><strong>inline</strong> <code>style="…"</code></td><td>priamo na jeden tag</td><td>len ten jeden prvok · rýchle, ale neprehľadné</td></tr>
+    <tr><td><strong>&lt;style&gt;</strong> v hlavičke</td><td><code>&lt;head&gt;</code> stránky</td><td>celá jedna stránka · <em>toto používame dnes</em></td></tr>
+    <tr><td><em>externý súbor .css</em></td><td>samostatný súbor</td><td>viac stránok naraz · <strong>preberieme nabudúce</strong></td></tr>
+  </table>
+
+  <h3>Selektory</h3>
+  <table class="cheat">
+    <tr><th>Zápis</th><th>Chytí</th></tr>
+    <tr><td><code>.karta</code></td><td>všetky prvky s <code>class="karta"</code> (bodka = trieda)</td></tr>
+    <tr><td><code>#karty</code></td><td>prvok s <code>id="karty"</code> (mriežka = id)</td></tr>
+  </table>
+
+  <h3>Zápis pravidla</h3>
+  <div class="anat"><span class="sel">selektor</span> <span class="tx">{</span> <span class="kw">vlastnosť</span>: <span class="st">hodnota</span>; <span class="tx">}</span></div>
+
+  <h3>Vlastnosti, s ktorými sme sa dnes hrali</h3>
+  <table class="cheat">
+    <tr><td><code>background</code></td><td>farba pozadia</td></tr>
+    <tr><td><code>color</code></td><td>farba textu</td></tr>
+    <tr><td><code>border</code></td><td>rámik, napr. <code>2px solid gray</code></td></tr>
+    <tr><td><code>border-radius</code></td><td>zaoblenie rohov</td></tr>
+    <tr><td><code>padding</code></td><td>vnútorný odstup od okraja</td></tr>
+    <tr><td><code>display: flex</code> + <code>gap</code></td><td>prvky vedľa seba s medzerou</td></tr>
+  </table>
+
+  <div class="pozn">Nabudúce: štýl vytiahneme do <strong>vlastného súboru <code>styl.css</code></strong>, aby mohol platiť pre viac stránok naraz — a pridáme ďalšie vlastnosti (fonty, box model).</div>
+</section>
+
+</body>
+</html>
