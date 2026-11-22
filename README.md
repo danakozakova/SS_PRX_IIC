@@ -24,3 +24,7 @@
 
 # 07 CSS
 - [07_css_zadanie.html](https://danakozakova.github.io/SS_PRX_IIC/07_css_zadanie.html)
+
+# 08 Vlastný miniprojekt
+- [predloha](08_opakovanie_predloha.png)
+- [08_opakovanie_zadanie](https://danakozakova.github.io/SS_PRX_IIC/08_opakovanie_zadanie)
