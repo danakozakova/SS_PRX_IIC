@@ -28,3 +28,4 @@
 # 08 Vlastný miniprojekt
 - [predloha](08_opakovanie_predloha.png)
 - [08_opakovanie_zadanie](https://danakozakova.github.io/SS_PRX_IIC/08_opakovanie_zadanie)
+- [tu vložte odkaz na súbor *.html na svojom githube](https://forms.cloud.microsoft/e/TiCGM93Je2)
