@@ -120,9 +120,15 @@ details p, details li { margin: .4rem 0; }
   <div class="uloha">
     <h2>Úloha 2 — Navigačné menu (opakovanie: odkazy)</h2>
     <p>Hneď pod <code>&lt;body&gt;</code> priprav menu pomocou tagu <code>&lt;nav&gt;</code></p>
-    <div class="anat"><span class="tg">&lt;nav&gt;</span>
-  <span class="tg">&lt;a</span> <span class="at">href</span>=<span class="st">"index.html"</span>...
-  <small>odkaz na iný súbor = názov súboru · odkaz na miesto v stránke (kotva) = <code>#id</code></small></div>
+    <div class="pozn">
+      <strong>Čo má menu obsahovať:</strong>
+      <ul>
+        <li>vnútri <code>&lt;nav&gt;</code> aspoň <strong>3 odkazy</strong> (tag <code>&lt;a&gt;</code>),</li>
+        <li>jeden odkaz vedie na <strong>súbor</strong> — v atribúte <code>href</code> je názov súboru (napr. <code>index.html</code>),</li>
+        <li>ďalšie dva sú <strong>kotvy</strong> na miesta v stránke — v <code>href</code> je <code>#id</code> toho miesta (galéria, fakty).</li>
+      </ul>
+      <small>odkaz na iný súbor = názov súboru · odkaz na miesto v stránke (kotva) = <code>#id</code></small>
+    </div>
     <div class="hotovo">
       <strong>✅ Dôležité</strong>
       <ul>
@@ -140,17 +146,15 @@ details p, details li { margin: .4rem 0; }
   <div class="uloha">
     <h2>Úloha 3 — Galéria kariet (opakovanie: obrázky + bloky)</h2>
     <p>Obsah stránky. Jeden kontajner <code>&lt;div id="galeria"&gt;</code> a v ňom <strong>6 kariet</strong>, každá je <code>&lt;div class="karta"&gt;</code> s obrázkom, nadpisom a textom.</p>
-    <div class="anat"><span class="tg">&lt;div</span> <span class="at">id</span>=<span class="st">"galeria"</span><span class="tg">&gt;</span>
-
-  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="st">"karta"</span><span class="tg">&gt;</span>
-    <span class="tg">&lt;img</span> <span class="at">src</span>=<span class="st">"obrazky/liska.jpg"</span> <span class="at">width</span>=<span class="st">"200"</span><span class="tg">&gt;</span>
-    <span class="tg">&lt;h2&gt;</span>Líška<span class="tg">&lt;/h2&gt;</span>
-    <span class="tg">&lt;p&gt;</span>Krátky popis vlastnými slovami.<span class="tg">&lt;/p&gt;</span>
-  <span class="tg">&lt;/div&gt;</span>
-
-  <span class="cm">&lt;!-- ... ešte 5 takýchto kariet ... --&gt;</span>
-<span class="tg">&lt;/div&gt;</span>
-    <small>pozor: kontajner má <code>id="galeria"</code> (jeden prvok), karty majú <code>class="karta"</code> (viac prvkov)</small></div>
+    <div class="pozn">
+      <strong>Ako poskladať galériu:</strong>
+      <ul>
+        <li>jeden <strong>obaľovač</strong> <code>&lt;div&gt;</code> s <code>id="galeria"</code> (je len jeden),</li>
+        <li>v ňom <strong>6×</strong> <code>&lt;div&gt;</code> s <code>class="karta"</code> (tried je viac),</li>
+        <li>v každej karte: obrázok <code>&lt;img&gt;</code> (s atribútmi <code>src</code> a <code>width</code>), nadpis <code>&lt;h2&gt;</code> a odsek <code>&lt;p&gt;</code> s vlastným textom.</li>
+      </ul>
+      <small>pozor: kontajner má <code>id="galeria"</code> (jeden prvok), karty majú <code>class="karta"</code> (viac prvkov)</small>
+    </div>
 
     <h3>Obrázky — stiahni si vlastné</h3>
     <ul>
@@ -177,11 +181,9 @@ details p, details li { margin: .4rem 0; }
   <div class="uloha">
     <h2>Úloha 4 — Zoznam faktov (opakovanie: zoznamy)</h2>
     <p>Pod galériu daj nadpis <code>&lt;h2 id="fakty"&gt;Rýchle fakty&lt;/h2&gt;</code> a za ním <strong>zoznam</strong> 3–5 zaujímavostí k tvojej téme:</p>
-    <div class="anat"><span class="tg">&lt;ul&gt;</span>
-  <span class="tg">&lt;li&gt;</span>Prvá zaujímavosť.<span class="tg">&lt;/li&gt;</span>
-  <span class="tg">&lt;li&gt;</span>Druhá zaujímavosť.<span class="tg">&lt;/li&gt;</span>
-  <span class="tg">&lt;li&gt;</span>Tretia zaujímavosť.<span class="tg">&lt;/li&gt;</span>
-<span class="tg">&lt;/ul&gt;</span></div>
+    <div class="pozn">
+      <strong>Štruktúra zoznamu:</strong> jeden <code>&lt;ul&gt;</code> a v ňom <strong>3–5 položiek</strong> <code>&lt;li&gt;</code>, každá s jednou zaujímavosťou (vlastnými slovami).
+    </div>
     <div class="hotovo">
       <strong>✅ Máš ..</strong>
       <ul>
@@ -198,22 +200,15 @@ details p, details li { margin: .4rem 0; }
 <section id="u5">
   <div class="uloha">
     <h2>Úloha 5 — Vzhľad cez CSS (opakovanie: <code>&lt;style&gt;</code> + selektory)</h2>
-    <p>Teraz stránke dáme vzhľad — <strong>raz a pre všetky karty naraz</strong>. Do <code>&lt;head&gt;</code> (vedľa <code>&lt;title&gt;</code>) pridaj značku <code>&lt;style&gt;</code> a do nej pravidlá.</p>
-    <div class="anat"><span class="tg">&lt;style&gt;</span>
-  <span class="sel">#galeria</span> <span class="tx">{</span>
-    <span class="kw">display</span>: <span class="st">flex</span>;
-    <span class="kw">gap</span>: <span class="st">16px</span>;
-    <span class="kw">flex-wrap</span>: <span class="st">wrap</span>;
-  <span class="tx">}</span>
-  <span class="sel">.karta</span> <span class="tx">{</span>
-    <span class="kw">background-color</span>: <span class="st">white</span>;
-    <span class="kw">border</span>: <span class="st">1px solid #d0d7de</span>;
-    <span class="kw">border-radius</span>: <span class="st">10px</span>;
-    <span class="kw">padding</span>: <span class="st">12px</span>;
-    <span class="kw">width</span>: <span class="st">220px</span>;
-  <span class="tx">}</span>
-<span class="tg">&lt;/style&gt;</span>
-    <small><code>#galeria</code> = obaľovač (karty vedľa seba) · <code>.karta</code> = spoločný vzhľad každej karty</small></div>
+    <p>Teraz stránke dáme vzhľad — <strong>raz a pre všetky karty naraz</strong>. Do <code>&lt;head&gt;</code> (vedľa <code>&lt;title&gt;</code>) pridaj značku <code>&lt;style&gt;</code> a do nej napíš <strong>dve pravidlá</strong>.</p>
+    <div class="pozn">
+      <strong>Aké dve pravidlá napísať:</strong>
+      <ul>
+        <li>selektor <code>#galeria</code> (obaľovač) — vlastnosti <code>display</code>, <code>gap</code> a <code>flex-wrap</code>, aby boli karty vedľa seba,</li>
+        <li>selektor <code>.karta</code> (spoločný vzhľad kariet) — vlastnosti <code>background-color</code>, <code>border</code>, <code>border-radius</code>, <code>padding</code>, <code>width</code>.</li>
+      </ul>
+      <small>konkrétne hodnoty si zvoľ sám/sama · zápis pravidla nájdeš v <strong>ťaháku</strong> dole: <code>selektor { vlastnosť: hodnota; }</code></small>
+    </div>
     <ul class="krok-list">
       <li><span class="krok-num">1</span><span>Pravidlo <code>#galeria</code> s <code>display: flex</code> → karty budú <strong>vedľa seba</strong>.</span></li>
       <li><span class="krok-num">2</span><span>Pravidlo <code>.karta</code> (pozadie, rámik, zaoblenie, padding) → vyzerajú ako karty.</span></li>
