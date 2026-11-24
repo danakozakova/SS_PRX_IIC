@@ -223,11 +223,24 @@ details p, details li { margin: .4rem 0; }
       <li><span class="krok-num">1</span><span>Otvor <code>vylety.html</code> v prehliadači a stlač <strong>F12</strong>. Prejdi na záložku <strong>Elements / Prvky</strong>.</span></li>
       <li><span class="krok-num">2</span><span>V kóde nájdi svoj <code>&lt;div id="karty"&gt;</code> a <strong>klikni</strong> naň (riadok sa podsvieti, na stránke sa označí celá skupina kariet).</span></li>
       <li><span class="krok-num">3</span><span>Vpravo je panel <strong>Styles / Štýly</strong> a úplne hore prázdne <code>element.style { }</code>. Klikni dovnútra zložených zátvoriek.</span></li>
-      <li><span class="krok-num">4</span><span>Napíš <code>display</code> → Enter, potom hodnotu <code>flex</code> → Enter.</span></li>
+      <li><span class="krok-num">4</span><span>Napíš <code>display</code> a stlač <strong>Tab</strong> (nie Enter!) — kurzor skočí za dvojbodku. Potom napíš <code>flex</code> a stlač <strong>Enter</strong>.</span></li>
     </ul>
     <div class="anat"><span class="at">element.style</span> {
   <span class="kw">display</span>: <span class="st">flex</span>;
 }</div>
+    <details>
+      <summary>Nejde to? / Istejšia cesta „Edit as HTML"</summary>
+      <p>Medzi názvom (<code>display</code>) a hodnotou (<code>flex</code>) treba <strong>Tab</strong>, nie Enter — Enter hneď po názve pole zavrie naprázdno.</p>
+      <p>Keď to aj tak nejde, použi spôsob, ktorý sa nedá pokaziť:</p>
+      <ol>
+        <li>Pravý klik na <code>&lt;div id="karty"&gt;</code> → <strong>Edit as HTML</strong> (Upraviť ako HTML).</li>
+        <li>Do otváracej značky dopíš <code>style</code>, nech vyzerá takto:
+          <div class="anat"><span class="tg">&lt;div</span> <span class="at">id</span>=<span class="st">"karty"</span> <span class="at">style</span>=<span class="st">"display: flex; gap: 20px"</span><span class="tg">&gt;</span></div>
+        </li>
+        <li>Klikni mimo poľa (alebo <code>Ctrl</code>+<code>Enter</code>) → karty skočia vedľa seba.</li>
+      </ol>
+      <p><strong>Flex nič neurobil?</strong> Over, že máš označený <em>obaľovací</em> <code>&lt;div id="karty"&gt;</code> (nie jednu kartu) a že tie tri karty sú <em>priamo</em> v ňom.</p>
+    </details>
     <p style="font-size:1.1rem;"><strong>💥 Čo sa stalo?</strong> Tvoje tri karty skočili <strong>vedľa seba</strong> do jedného radu — presne ako na náhľade na začiatku hodiny.</p>
     <p>Skús pridať ešte <code>gap: 20px</code> (medzera medzi kartami) a <code>padding: 10px</code> — rad kariet sa pekne usadí.</p>
 

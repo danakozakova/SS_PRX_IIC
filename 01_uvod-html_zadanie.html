@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRX | 01 — Úlohy pre žiakov</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: #1e293b; font-size: 20px; line-height: 1.7; }
+
+nav { position: sticky; top: 0; background: #1e1b4b; color: white; display: flex; gap: .25rem; padding: .6rem 2rem; flex-wrap: wrap; z-index: 100; align-items: center; }
+nav strong { color: white; margin-right: .5rem; }
+nav a { color: #a5b4fc; text-decoration: none; font-size: .85rem; padding: .3rem .9rem; border-radius: .25rem; }
+nav a:hover { background: #312e81; color: white; }
+
+section { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 2.5rem; border-bottom: 1px solid #e2e8f0; }
+section:last-child { border-bottom: none; }
+
+h1 { font-size: 2.2rem; color: #1e1b4b; margin-bottom: .5rem; }
+h2 { font-size: 1.8rem; color: #312e81; margin-bottom: 1.2rem; padding-bottom: .5rem; border-bottom: 2px solid #e0e7ff; }
+h3 { font-size: 1.25rem; color: #4338ca; margin: 1.75rem 0 .6rem; }
+p  { margin-bottom: .85rem; }
+ul, ol { margin: .5rem 0 .85rem 1.5rem; }
+li { margin-bottom: .5rem; }
+
+code { background: #e0e7ff; color: #3730a3; padding: .15rem .5rem; border-radius: .3rem; font-size: .88em; font-family: 'Cascadia Code', 'Fira Code', monospace; }
+pre  { background: #0f172a; color: #7dd3fc; padding: 1.4rem 1.8rem; border-radius: .75rem; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: .95rem; overflow-x: auto; margin: 1rem 0 1.5rem; line-height: 1.7; }
+pre .tg { color: #60a5fa; }
+pre .cm { color: #64748b; }
+
+.info    { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.tip     { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.warn    { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+.pozn    { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin: 1rem 0; }
+
+.uloha   { border-left: 4px solid #3b82f6; background: #eff6ff; padding: 1rem 1.5rem; border-radius: 0 .5rem .5rem 0; margin-bottom: 1.5rem; }
+.uloha h2 { margin: 0 0 .5rem; color: #1e40af; font-size: 1.1rem; border: none; padding: 0; }
+.uloha p, .uloha li { margin: .25rem 0; color: #374151; }
+.nastavenie { border-left: 4px solid #f97316; background: #fff7ed; }
+.nastavenie h2 { color: #c2410c; }
+.projekt { border-left: 4px solid #22c55e; background: #f0fdf4; }
+.projekt h2 { color: #15803d; }
+.bonus   { border-left: 4px solid #a855f7; background: #fdf4ff; }
+.bonus h2 { color: #7e22ce; }
+.oddelovac { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+
+.subor { display: inline-block; background: #1e1b4b; color: #a5b4fc; font-family: 'Cascadia Code', monospace; font-size: .85rem; padding: .3rem .8rem; border-radius: .4rem; margin: .3rem 0; }
+</style>
+</head>
+<body>
+
+<nav>
+  <strong>PRX · II.C · Hodina 01</strong>
+  <a href="#u1">Úloha 1</a>
+  <a href="#u2">Úloha 2</a>
+  <a href="#nastavenie">VS Code</a>
+  <a href="#u3">Úloha 3</a>
+  <a href="#projekt">Mini-projekt</a>
+  <a href="#bonus">Bonus</a>
+</nav>
+
+<section>
+  <h1>Hodina 01 — Úvod do HTML</h1>
+  <p>Úvod do značkovacieho jazyka HTML, zobrazenie zdrojového kódu stránky, práca vo VS Code.</p>
+
+  <div class="info">
+    📄 Kód dnes píšeš do <strong>nového súboru</strong>, ktorý si vytvoríš v Úlohe 2:<br>
+    <span class="subor">moja-stranka.html</span>
+  </div>
+</section>
+
+<!-- ÚLOHA 1 -->
+<section id="u1">
+  <div class="uloha">
+    <h2>Úloha 1 — Objav: zdrojový kód webovej stránky</h2>
+    <p>Každá webová stránka je v skutočnosti textový súbor. Pozrieš sa do neho?</p>
+    <ol>
+      <li>Otvor prehliadač (Chrome alebo Edge)</li>
+      <li>Navštív <code>wikipedia.org</code></li>
+      <li>Stlač <strong><code>Ctrl + U</code></strong> — otvorí sa zdrojový kód stránky</li>
+      <li>Prezri si ho a odpovedz na tieto otázky (zapíš odpovede do zošita alebo na papier):</li>
+    </ol>
+    <ul>
+      <li>Nájdi aspoň <strong>5 rôznych tagov</strong> — čo sa nachádza medzi <code>&lt;</code> a <code>&gt;</code>?</li>
+      <li>Nájdi nejaký text, ktorý vidíš aj na stránke aj v zdrojáku. Opíš kde sa nachádza.</li>
+      <li>Čo si myslíš, čo robí tag <code>&lt;h1&gt;</code>? A <code>&lt;p&gt;</code>? A <code>&lt;a&gt;</code>?</li>
+    </ul>
+    <p>Potom skús to isté aj s inou stránkou — napr. <code>spsit.sk</code>.</p>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 2 -->
+<section id="u2">
+  <div class="uloha">
+    <h2>Úloha 2 — Prvý HTML súbor v Notepade</h2>
+    <p>Skúsime urobiť HTML stránku bez špeciálneho editora — v obyčajnom Poznámkovom bloku.</p>
+    <ol>
+      <li>Otvor <strong>Poznámkový blok (Notepad)</strong> — hľadaj ho v Štarte</li>
+      <li>Napíš do neho:
+        <pre>Ahoj, svet!</pre>
+      </li>
+      <li>Ulož: <strong>Súbor → Uložiť ako</strong><br>
+        — v rozbaľovacom menu <em>Typ súboru</em> vyber <strong>Všetky súbory (*.*)</strong><br>
+        — do názvu napíš <code>moja-stranka.html</code>
+      </li>
+      <li>Nájdi súbor v Prieskumníkovi a <strong>otvor ho v prehliadači</strong> (dvojklik alebo pravý klik → Otvoriť pomocou → Chrome)</li>
+    </ol>
+    <p>Funguje to? Čo vidíš na stránke?</p>
+    <div class="pozn">
+      💬 Zamysli sa: Je Poznámkový blok dobrý nástroj na písanie HTML? Čo ti chýba? Čo by si chcel(a), aby robil inak?
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- NASTAVENIE VS CODE -->
+<section id="nastavenie">
+  <div class="uloha nastavenie">
+    <h2>🛠 Nastavenie VS Code</h2>
+    <p>Teraz vieš, že na HTML potrebuješ lepší editor. Nainštalujme do VS Code rozšírenie <strong>Live Preview</strong>:</p>
+    <ol>
+      <li>Otvor <strong>VS Code</strong></li>
+      <li>Klikni na ikonu rozšírení vľavo (<code>Ctrl+Shift+X</code>)</li>
+      <li>Do vyhľadávania napíš <strong>Live Preview</strong></li>
+      <li>Nainštaluj rozšírenie od <em>Microsoft</em></li>
+      <li>Otvor svoj súbor <code>moja-stranka.html</code> vo VS Code</li>
+      <li>Spusti Live Preview: <code>Ctrl+Shift+P</code> → napíš <em>Live Preview: Show Preview</em> → Enter</li>
+    </ol>
+    <p>Uprav nejaký text, ulož (<code>Ctrl+S</code>) — vidíš, ako sa náhľad aktualizuje okamžite?</p>
+    <div class="tip">
+      💡 VS Code navyše farebne zvýrazňuje kód podľa prípony súboru — <code>.html</code> súbory budú mať špeciálne sfarbenie tagov (syntax highlighting).
+    </div>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- ÚLOHA 3 -->
+<section id="u3">
+  <div class="uloha">
+    <h2>Úloha 3 — Experimentuj s tagmi</h2>
+    <p>Bez toho, aby sme ti vysvetlili čo presne robia — <strong>vyskúšaj</strong> tieto tagy. Pridaj ich do svojho súboru <code>moja-stranka.html</code>, ulož a pozri čo sa stalo.</p>
+    <p>Pre každý tag zapíš: <em>Čo urobil?</em></p>
+    <pre><span class="tg">&lt;b&gt;</span>Tučný text<span class="tg">&lt;/b&gt;</span>
+<span class="tg">&lt;i&gt;</span>Kurzíva<span class="tg">&lt;/i&gt;</span>
+<span class="tg">&lt;u&gt;</span>Podčiarknutý<span class="tg">&lt;/u&gt;</span>
+<span class="tg">&lt;h1&gt;</span>Veľký nadpis<span class="tg">&lt;/h1&gt;</span>
+<span class="tg">&lt;h2&gt;</span>Menší nadpis<span class="tg">&lt;/h2&gt;</span>
+<span class="tg">&lt;h6&gt;</span>Najmenší nadpis<span class="tg">&lt;/h6&gt;</span>
+<span class="tg">&lt;p&gt;</span>Prvý odstavec<span class="tg">&lt;/p&gt;</span>
+<span class="tg">&lt;p&gt;</span>Druhý odstavec<span class="tg">&lt;/p&gt;</span>
+<span class="tg">&lt;br&gt;</span>
+<span class="tg">&lt;hr&gt;</span></pre>
+    <p><strong>Otázky na zamyslenie:</strong></p>
+    <ul>
+      <li>Čo je rozdiel medzi <code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code>?</li>
+      <li>Čo urobí <code>&lt;br&gt;</code>? Má uzatváraciu verziu <code>&lt;/br&gt;</code>? Prečo nie?</li>
+      <li>Ako sa líšia <code>&lt;p&gt;&lt;/p&gt;</code> od <code>&lt;br&gt;</code>?</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- MINI-PROJEKT -->
+<section id="projekt">
+  <div class="uloha projekt">
+    <h2>🎯 Mini-projekt — Moja stránka</h2>
+    <p>Vytvor stránku, ktorá ťa predstaví. Musí obsahovať:</p>
+    <ul>
+      <li>✅ Tvoje meno — ako veľký nadpis <code>h1</code></li>
+      <li>✅ Trieda a škola</li>
+      <li>✅ Aspoň 3 záujmy alebo koníčky</li>
+      <li>✅ Aspoň 2 rôzne tagy, ktoré si dnes objavil(a)</li>
+      <li>✅ Niečo tučné (<code>&lt;b&gt;</code>) alebo kurzívne (<code>&lt;i&gt;</code>)</li>
+      <li>✅ Vodorovná čiara (<code>&lt;hr&gt;</code>) na oddelenie sekcií</li>
+    </ul>
+    <p><strong>Postup:</strong> Napíš text, pridaj tagy, ulož, pozri výsledok. Opakuj kým si spokojný(á).</p>
+    <p><strong>Tip:</strong> Nemusíš vedieť všetko — experimentuj. Ak tag nefunguje, skontroluj či má uzatváraciu verziu <code>&lt;/tag&gt;</code>.</p>
+  </div>
+</section>
+
+<hr class="oddelovac">
+
+<!-- BONUS -->
+<section id="bonus">
+  <div class="uloha bonus">
+    <h2>⭐ Bonus — Ďalšie objavy</h2>
+    <p>Pre tých, ktorí stihli projekt. Vyskúšaj:</p>
+    <ol>
+      <li>
+        <strong>Pohyblivý text</strong> — čo urobí tento (starý, ale zaujímavý) tag?
+        <pre><span class="tg">&lt;marquee&gt;</span>Pohyblivý text!<span class="tg">&lt;/marquee&gt;</span></pre>
+      </li>
+      <li>
+        <strong>Indexy</strong> — skús:
+        <pre>H<span class="tg">&lt;sub&gt;</span>2<span class="tg">&lt;/sub&gt;</span>O
+x<span class="tg">&lt;sup&gt;</span>2<span class="tg">&lt;/sup&gt;</span> + y<span class="tg">&lt;sup&gt;</span>2<span class="tg">&lt;/sup&gt;</span></pre>
+      </li>
+      <li>
+        <strong>Zvýraznenie a prečiarknutie</strong>:
+        <pre><span class="tg">&lt;mark&gt;</span>Zvýraznený text<span class="tg">&lt;/mark&gt;</span>
+<span class="tg">&lt;del&gt;</span>Prečiarknutý text<span class="tg">&lt;/del&gt;</span></pre>
+      </li>
+      <li>
+        <strong>Vnorené tagy</strong> — čo sa stane keď ich skombinuješ?
+        <pre><span class="tg">&lt;b&gt;&lt;i&gt;</span>Tučná kurzíva<span class="tg">&lt;/i&gt;&lt;/b&gt;</span>
+<span class="tg">&lt;h2&gt;&lt;u&gt;</span>Podčiarknutý nadpis<span class="tg">&lt;/u&gt;&lt;/h2&gt;</span></pre>
+      </li>
+    </ol>
+  </div>
+</section>
+
+</body>
+</html>
